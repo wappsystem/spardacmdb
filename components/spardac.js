@@ -6,7 +6,8 @@
         "participant-data":   		{url:"$A/spardacmdb/components/participant/participant-data.html",Table:"spardac-participant",form_module:"participant-form",router:1,
                                             child_panel:"panel-child-spardac",
                                             questionnaire_setup:"online-questionnaire-setup-spardac",
-                                            online_questionnaire:"online-questionnaire-app-spardac"
+                                            online_questionnaire:"online-questionnaire-app-spardac",
+                                            participant_id:{field1:"Subject_ID",field2:"Subject_Initials"}
                                         },
         "participant-form":   		{url:"$A/spardacmdb/components/participant/participant-form.html",Table:"spardac-participant"},
 
@@ -17,6 +18,10 @@
 
         "dynamic-text-form-data-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-data.html",Table:"dynamic-text-form-spardac",form_module:"dynamic-text-form-form-spardac"},
         "dynamic-text-form-form-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-form.html",Table:"dynamic-text-form-spardac"},
+        "upload-file-data-spardac":		        {url:"$A/modules/mdb/u/upload-file-data.html",Table:"upload-file-spardac",form_module:"upload-file-form-spardac"},
+        "upload-file-form-spardac":		        {url:"$A/modules/mdb/u/upload-file-form.html",Table:"upload-file-spardac"},
+        "read-data-from-file-data-spardac":		{url:"$A/modules/mdb/r/read-data-from-file-data.html",Table:"read-data-from-file-spardac",form_module:"read-data-from-file-form-spardac"},
+        "read-data-from-file-form-spardac":		{url:"$A/modules/mdb/r/read-data-from-file-form.html",Table:"read-data-from-file-spardac"},
         "one-many-standard-data-spardac":	    {url:"$A/modules/mdb/o/one-many-standard-data.html",Table:"one-many-standard-spardac",form_module:"one-many-standard-form-spardac"},
         "one-many-standard-form-spardac":	    {url:"$A/modules/mdb/o/one-many-standard-form.html",Table:"one-many-standard-spardac",task_name:"One of many choice - Standard"},
         "one-many-special-1-data-spardac":	    {url:"$A/modules/mdb/o/one-many-special-1-data.html",Table:"one-many-special-1-spardac",form_module:"one-many-special-1-form-spardac"},

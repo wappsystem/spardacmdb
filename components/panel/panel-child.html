@@ -19,8 +19,8 @@
     		var participant_record;
     		var count={}
     		var participant_info=function(record){ 
-                if($vm.api_type=="sqlserver")   return record.Subject_Initials+' '+record.DOB; 
-                else                            return record.Data.Subject_Initials+' '+record.Data.DOB; 
+                if($vm.api_type=="sqlserver")   return record.Subject_ID+' '+record.Subject_Initials; 
+                else                            return record.Data.Subject_ID+' '+record.Data.Subject_Initials; 
             }
 			//--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){
