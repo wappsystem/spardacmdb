@@ -15,6 +15,10 @@
             m.cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
                     case 'DOB':
+                        if(records[I].Data.DOB!=''){
+                            var dob=(records[I].Data.DOB).split('-');
+                            td.html(dob[2]+'/'+dob[1]+'/'+dob[0]);
+                        }
                         break;
                     case '_Participant_ID':
                         td.html(records[I].UID);
