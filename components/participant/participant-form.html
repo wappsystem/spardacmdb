@@ -33,7 +33,7 @@
 						<select class=form-control name=Gender>
 							<option value=''>---</option>
 							<option>Male</option>
-							<option>Femaile</option>
+							<option>Female</option>
 						</select>
 					</div>
 					<div class="col-sm col-lg-6">
@@ -97,7 +97,9 @@
 							return;
 						}
 						var max_I1=0;
-						if(res.result.length>0) max_I1=res.result[0].I1
+						if(res.result.length>0) {
+							if(res.result[0].I1!==undefined) max_I1=res.result[0].I1
+						}
 						max_I1++;
 						$('#F__ID input[name=Randomisation_Number').val(max_I1);
 						$('#F__ID input[name=Randomised_by').val($vm.user_name);

@@ -16,6 +16,9 @@
 
         "notes":  		  	  			{url:"$A/modules/mdb/n/notes.html"},
 
+        "randomisation-table-data-spardac":		{url:"$A/modules/mdb/r/randomisation-table-data.html",Table:"randomisation-table-spardac",form_module:"randomisation-table-form-spardac"},
+        "randomisation-table-form-spardac":		{url:"$A/modules/mdb/r/randomisation-table-form.html",Table:"randomisation-table-spardac"},
+
         "dynamic-text-form-data-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-data.html",Table:"dynamic-text-form-spardac",form_module:"dynamic-text-form-form-spardac"},
         "dynamic-text-form-form-spardac":		{url:"$A/modules/mdb/d/dynamic-text-form-form.html",Table:"dynamic-text-form-spardac"},
         "upload-file-data-spardac":		        {url:"$A/modules/mdb/u/upload-file-data.html",Table:"upload-file-spardac",form_module:"upload-file-form-spardac"},
