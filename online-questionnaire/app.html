@@ -27,8 +27,9 @@
         if(window.location.toString().indexOf('_p=1')!=-1) $vm.api_address="https://api.wappsystem.com:3000";
         //------------------------------------
         //Set your default web page title and footer text
-        $vm.default_title="Modular distributed web application";
-        var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
+        $vm.default_title="Spardac Online Questionnaire";
+        //var txt="Key Alt+mouse double click on a content area will show the source code of the content module and where it is hosted. ";
+        var txt="Copyright © "+(new Date()).getFullYear()+", Wappsystem Pty Ltd";
         $('#text_0').html(txt);
         //------------------------------------
         $('#c_header').contents().appendTo('#header');
