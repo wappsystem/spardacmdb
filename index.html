@@ -15,16 +15,18 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.53,0.53]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.54,0.54]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://spardac.wappsystem.com.au';
-        $vm.local_url_$A='http://127.0.0.1:8000/wappsystem';
+        $vm.local_url_$A='http://127.0.0.1:8000/wappsystem/spardacmdb';
+        $vm.public_url_$B='https://modules.wappsystem.com.au';
+        $vm.local_url_$B='http://127.0.0.1:8000/wappsystem/modules';
         //------------------------------------
         //where are your start modules
         $vm.start_modules=[
-            "$A/spardacmdb/app.html",
-            "$A/modules/mdb/f/frame.html",
+            "$A/app.html",
+            "$B/mdb/f/frame.html",
         ]
         //------------------------------------
         //modules used in this app
@@ -33,9 +35,9 @@
         //------------------------------------
         //where are your all other modules
         $vm.app_modules=[
-            "$A/spardacmdb/components/spardac-home.js",
-            "$A/spardacmdb/components/spardac.js",
-            "$A/modules/mdb/common.js",
+            "$A/components/spardac-home.js",
+            "$A/components/spardac.js",
+            "$B/mdb/common.js",
         ]
         //------------------------------------
         
@@ -51,7 +53,9 @@
         //replace the url
         $vm.replace_url=function(url){
             var urlR=url.replace("$A",$vm.public_url_$A);
+                urlR=urlR.replace("$B",$vm.public_url_$B);
             if($vm.localhost==true) urlR=urlR.replace($vm.public_url_$A,$vm.local_url_$A);
+            if($vm.localhost==true) urlR=urlR.replace($vm.public_url_$B,$vm.local_url_$B);
             return urlR;
         }
         //------------------------------------
