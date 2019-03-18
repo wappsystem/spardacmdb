@@ -43,7 +43,7 @@
                             var d="";  if(window.location.toString().indexOf('_d=1')!=-1) d="&_d=1";
                             var p="";  if(window.location.toString().indexOf('_p=1')!=-1) p="&_p=1";
                             var u="?username="+records[I].UID+"-"+records[I].Data.Subject_Initials+"&password="+records[I].Data._Password;
-    						var q_url=$vm.module_list[m.online_questionnaire].url+u+db+d+p;
+                            var q_url=$vm.module_list[m.online_questionnaire].url+u+db+d+p;
     						window.open(q_url);
                         });
                         break;
