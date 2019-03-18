@@ -1,6 +1,7 @@
 (function(){
     var modules={
         "panel-main-spardac":    			{url:"$A/components/panel/panel-main.html",router:1},
+        "panel-library-spardac":    			{url:"$A/components/panel/panel-library.html",router:1},
         "panel-child-spardac":    			{url:"$A/components/panel/panel-child.html"},
         
         "participant-data":   		{url:"$A/components/participant/participant-data.html",Table:"spardac-participant",form_module:"participant-form",router:1,
@@ -54,7 +55,28 @@
         "concom-medication-data-spardac":   {url:"$B/mdb/c/concom-medication-data.html",Table:"concom-medication-spardac",form_module:"concom-medication-form-spardac"},
         "concom-medication-form-spardac":   {url:"$B/mdb/c/concom-medication-form.html",Table:"concom-medication-spardac"},
         "adverse-event-data-spardac":   {url:"$B/mdb/a/adverse-event-data.html",Table:"adverse-event-spardac",form_module:"adverse-event-form-spardac"},
-        "adverse-event-form-spardac":   {url:"$B/mdb/a/adverse-event-form.html",Table:"adverse-event-spardac"}
+        "adverse-event-form-spardac":   {url:"$B/mdb/a/adverse-event-form.html",Table:"adverse-event-spardac"},
+
+        "dass-data-spardac":   {url:"$B/mdb/d/dass-data.html",Table:"dass-spardac",form_module:"dass-form-spardac"},
+        "dass-form-spardac":   {url:"$B/mdb/d/dass-form.html",Table:"dass-spardac"},
+        "anthropometry-age-sex-data-spardac":   {url:"$B/mdb/a/anthropometry-age-sex-data.html",Table:"anthropometry-age-sex-spardac",form_module:"anthropometry-age-sex-form-spardac"},
+        "anthropometry-age-sex-form-spardac":   {url:"$B/mdb/a/anthropometry-age-sex-form.html",Table:"anthropometry-age-sex-spardac"},
+        "ethnicity-data-spardac":   {url:"$B/mdb/e/ethnicity-data.html",Table:"ethnicity-spardac",form_module:"ethnicity-form-spardac"},
+        "ethnicity-form-spardac":   {url:"$B/mdb/e/ethnicity-form.html",Table:"ethnicity-spardac"},
+        "ess-data-spardac":   {url:"$B/mdb/e/ess-data.html",Table:"ess-spardac",form_module:"ess-form-spardac"},
+        "ess-form-spardac":   {url:"$B/mdb/e/ess-form.html",Table:"ess-spardac"},
+        "gad7-data-spardac":   {url:"$B/mdb/g/gad7-data.html",Table:"gad7-spardac",form_module:"gad7-form-spardac"},
+        "gad7-form-spardac":   {url:"$B/mdb/g/gad7-form.html",Table:"gad7-spardac"},
+        "fosq-data-spardac":   {url:"$B/mdb/f/fosq-data.html",Table:"fosq-spardac",form_module:"fosq-form-spardac"},
+        "fosq-form-spardac":   {url:"$B/mdb/f/fosq-form.html",Table:"fosq-spardac"},
+        "fss-data-spardac":   {url:"$B/mdb/f/fss-data.html",Table:"fss-spardac",form_module:"fss-form-spardac"},
+        "fss-form-spardac":   {url:"$B/mdb/f/fss-form.html",Table:"fss-spardac"},
+        "isi-data-spardac":   {url:"$B/mdb/i/isi-data.html",Table:"isi-spardac",form_module:"isi-form-spardac"},
+        "isi-form-spardac":   {url:"$B/mdb/i/isi-form.html",Table:"isi-spardac"},
+        "lifestyle-data-spardac":   {url:"$B/mdb/l/lifestyle-data.html",Table:"lifestyle-spardac",form_module:"lifestyle-form-spardac"},
+        "lifestyle-form-spardac":   {url:"$B/mdb/l/lifestyle-form.html",Table:"lifestyle-spardac"},
+        "me-data-spardac":   {url:"$B/mdb/l/me-data.html",Table:"me-spardac",form_module:"me-form-spardac"},
+        "me-form-spardac":   {url:"$B/mdb/l/me-form.html",Table:"me-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
