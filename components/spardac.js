@@ -103,6 +103,18 @@
         "finger-tapping-form-spardac":   {url:"$B/mdb/neurocog/finger-tapping-form.html",Table:"finger-tapping-spardac"},
         "letter-cancellation-data-spardac":   {url:"$B/mdb/neurocog/letter-cancellation-data.html",Table:"letter-cancellation-spardac",form_module:"letter-cancellation-form-spardac"},
         "letter-cancellation-form-spardac":   {url:"$B/mdb/neurocog/letter-cancellation-form.html",Table:"letter-cancellation-spardac"},
+        "nback1-data-spardac":   {url:"$B/mdb/neurocog/nback1-data.html",Table:"nback1-spardac",form_module:"nback1-form-spardac"},
+        "nback1-form-spardac":   {url:"$B/mdb/neurocog/nback1-form.html",Table:"nback1-spardac"},
+        "nback2-data-spardac":   {url:"$B/mdb/neurocog/nback2-data.html",Table:"nback2-spardac",form_module:"nback2-form-spardac"},
+        "nback2-form-spardac":   {url:"$B/mdb/neurocog/nback2-form.html",Table:"nback2-spardac"},
+        "nback3-data-spardac":   {url:"$B/mdb/neurocog/nback3-data.html",Table:"nback3-spardac",form_module:"nback3-form-spardac"},
+        "nback3-form-spardac":   {url:"$B/mdb/neurocog/nback3-form.html",Table:"nback3-spardac"},
+        "stroop-colour-data-spardac":   {url:"$B/mdb/neurocog/stroop-colour-data.html",Table:"stroop-colour-spardac",form_module:"stroop-colour-form-spardac"},
+        "stroop-colour-form-spardac":   {url:"$B/mdb/neurocog/stroop-colour-form.html",Table:"stroop-colour-spardac"},
+        "stroop-text-data-spardac":   {url:"$B/mdb/neurocog/stroop-text-data.html",Table:"stroop-text-spardac",form_module:"stroop-text-form-spardac"},
+        "stroop-text-form-spardac":   {url:"$B/mdb/neurocog/stroop-text-form.html",Table:"stroop-text-spardac"},
+        "tower-london-data-spardac":   {url:"$B/mdb/neurocog/tower-london-data.html",Table:"tower-london-spardac",form_module:"tower-london-form-spardac"},
+        "tower-london-form-spardac":   {url:"$B/mdb/neurocog/tower-london-form.html",Table:"tower-london-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
