@@ -115,6 +115,12 @@
         "stroop-text-form-spardac":   {url:"$B/mdb/neurocog/stroop-text-form.html",Table:"stroop-text-spardac"},
         "tower-london-data-spardac":   {url:"$B/mdb/neurocog/tower-london-data.html",Table:"tower-london-spardac",form_module:"tower-london-form-spardac"},
         "tower-london-form-spardac":   {url:"$B/mdb/neurocog/tower-london-form.html",Table:"tower-london-spardac"},
+        "bpns-data-spardac":   {url:"$B/mdb/b/bpns-data.html",Table:"bpns-spardac",form_module:"bpns-form-spardac"},
+        "bpns-form-spardac":   {url:"$B/mdb/b/bpns-form.html",Table:"bpns-spardac"},
+        "gses-data-spardac":   {url:"$B/mdb/g/gses-data.html",Table:"gses-spardac",form_module:"gses-form-spardac"},
+        "gses-form-spardac":   {url:"$B/mdb/g/gses-form.html",Table:"gses-spardac"},
+        "hpq-data-spardac":   {url:"$B/mdb/h/hpq-data.html",Table:"hpq-spardac",form_module:"hpq-form-spardac"},
+        "hpq-form-spardac":   {url:"$B/mdb/h/hpq-form.html",Table:"hpq-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
