@@ -123,6 +123,8 @@
         "hpq-form-spardac":   {url:"$B/mdb/h/hpq-form.html",Table:"hpq-spardac"},
         "poms-data-spardac":   {url:"$B/mdb/p/poms-data.html",Table:"poms-spardac",form_module:"poms-form-spardac"},
         "poms-form-spardac":   {url:"$B/mdb/p/poms-form.html",Table:"poms-spardac"},
+        "kss-data-spardac":   {url:"$B/mdb/k/kss-data.html",Table:"kss-spardac",form_module:"kss-form-spardac"},
+        "kss-form-spardac":   {url:"$B/mdb/k/kss-form.html",Table:"kss-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
