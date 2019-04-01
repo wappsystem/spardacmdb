@@ -125,6 +125,12 @@
         "poms-form-spardac":   {url:"$B/mdb/p/poms-form.html",Table:"poms-spardac"},
         "kss-data-spardac":   {url:"$B/mdb/k/kss-data.html",Table:"kss-spardac",form_module:"kss-form-spardac"},
         "kss-form-spardac":   {url:"$B/mdb/k/kss-form.html",Table:"kss-spardac"},
+        "medical-history-short-data-spardac":   {url:"$B/mdb/m/medical-history-short-data.html",Table:"medical-history-short-spardac",form_module:"medical-history-short-form-spardac"},
+        "medical-history-short-form-spardac":   {url:"$B/mdb/m/medical-history-short-form.html",Table:"medical-history-short-spardac"},
+        "sleep-history-data-spardac":   {url:"$B/mdb/s/sleep-history-data.html",Table:"sleep-history-spardac",form_module:"sleep-history-form-spardac"},
+        "sleep-history-form-spardac":   {url:"$B/mdb/s/sleep-history-form.html",Table:"sleep-history-spardac"},
+        "ffs-data-spardac":   {url:"$B/mdb/f/ffs-data.html",Table:"ffs-spardac",form_module:"ffs-form-spardac"},
+        "ffs-form-spardac":   {url:"$B/mdb/f/ffs-form.html",Table:"ffs-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
