@@ -131,6 +131,8 @@
         "sleep-history-form-spardac":   {url:"$B/mdb/s/sleep-history-form.html",Table:"sleep-history-spardac"},
         "ffs-data-spardac":   {url:"$B/mdb/f/ffs-data.html",Table:"ffs-spardac",form_module:"ffs-form-spardac"},
         "ffs-form-spardac":   {url:"$B/mdb/f/ffs-form.html",Table:"ffs-spardac"},
+        "actiwatch-data-spardac":   {url:"$B/mdb/a/actiwatch-data.html",Table:"actiwatch-spardac",form_module:"actiwatch-form-spardac"},
+        "actiwatch-form-spardac":   {url:"$B/mdb/a/actiwatch-form.html",Table:"actiwatch-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
