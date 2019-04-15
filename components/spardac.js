@@ -133,6 +133,10 @@
         "ffs-form-spardac":   {url:"$B/mdb/f/ffs-form.html",Table:"ffs-spardac"},
         "actiwatch-data-spardac":   {url:"$B/mdb/a/actiwatch-data.html",Table:"actiwatch-spardac",form_module:"actiwatch-form-spardac"},
         "actiwatch-form-spardac":   {url:"$B/mdb/a/actiwatch-form.html",Table:"actiwatch-spardac"},
+        "eq-5d-data-spardac":   {url:"$B/mdb/e/eq-5d-data.html",Table:"eq-5d-spardac",form_module:"eq-5d-form-spardac"},
+        "eq-5d-form-spardac":   {url:"$B/mdb/e/eq-5d-form.html",Table:"eq-5d-spardac"},
+        "sf36-data-spardac":   {url:"$B/mdb/s/sf36-data.html",Table:"sf36-spardac",form_module:"sf36-form-spardac"},
+        "sf36-form-spardac":   {url:"$B/mdb/s/sf36-form.html",Table:"sf36-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
