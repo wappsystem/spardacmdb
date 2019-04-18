@@ -56,6 +56,10 @@
         "concom-medication-form-spardac":   {url:"$B/mdb/c/concom-medication-form.html",Table:"concom-medication-spardac"},
         "adverse-event-data-spardac":   {url:"$B/mdb/a/adverse-event-data.html",Table:"adverse-event-spardac",form_module:"adverse-event-form-spardac"},
         "adverse-event-form-spardac":   {url:"$B/mdb/a/adverse-event-form.html",Table:"adverse-event-spardac"},
+        "serious-adverse-event-data-spardac":   {url:"$B/mdb/s/serious-adverse-event-data.html",Table:"serious-adverse-event-spardac",form_module:"serious-adverse-event-form-spardac"},
+        "serious-adverse-event-form-spardac":   {url:"$B/mdb/s/serious-adverse-event-form.html",Table:"serious-adverse-event-spardac"},
+        "serious-adverse-event-follow-up-data-spardac":   {url:"$B/mdb/s/serious-adverse-event-follow-up-data.html",Table:"serious-adverse-event-follow-up-spardac",form_module:"serious-adverse-event-follow-up-form-spardac"},
+        "serious-adverse-event-follow-up-form-spardac":   {url:"$B/mdb/s/serious-adverse-event-follow-up-form.html",Table:"serious-adverse-event-follow-up-spardac"},
 
         "dass-data-spardac":   {url:"$B/mdb/d/dass-data.html",Table:"dass-spardac",form_module:"dass-form-spardac"},
         "dass-form-spardac":   {url:"$B/mdb/d/dass-form.html",Table:"dass-spardac"},
@@ -137,6 +141,8 @@
         "eq-5d-form-spardac":   {url:"$B/mdb/e/eq-5d-form.html",Table:"eq-5d-spardac"},
         "sf36-data-spardac":   {url:"$B/mdb/s/sf36-data.html",Table:"sf36-spardac",form_module:"sf36-form-spardac"},
         "sf36-form-spardac":   {url:"$B/mdb/s/sf36-form.html",Table:"sf36-spardac"},
+        "iwqlq-data-spardac":   {url:"$B/mdb/i/iwqlq-data.html",Table:"iwqlq-spardac",form_module:"iwqlq-form-spardac"},
+        "iwqlq-form-spardac":   {url:"$B/mdb/i/iwqlq-form.html",Table:"iwqlq-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
