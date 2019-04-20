@@ -143,6 +143,8 @@
         "sf36-form-spardac":   {url:"$B/mdb/s/sf36-form.html",Table:"sf36-spardac"},
         "iwqlq-data-spardac":   {url:"$B/mdb/i/iwqlq-data.html",Table:"iwqlq-spardac",form_module:"iwqlq-form-spardac"},
         "iwqlq-form-spardac":   {url:"$B/mdb/i/iwqlq-form.html",Table:"iwqlq-spardac"},
+        "brief-illness-perception-questionnaire-data-spardac":   {url:"$B/mdb/b/brief-illness-perception-questionnaire-data.html",Table:"brief-illness-perception-questionnaire-spardac",form_module:"brief-illness-perception-questionnaire-form-spardac"},
+        "brief-illness-perception-questionnaire-form-spardac":   {url:"$B/mdb/b/brief-illness-perception-questionnaire-form.html",Table:"brief-illness-perception-questionnaire-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
