@@ -145,6 +145,8 @@
         "iwqlq-form-spardac":   {url:"$B/mdb/i/iwqlq-form.html",Table:"iwqlq-spardac"},
         "brief-illness-perception-questionnaire-data-spardac":   {url:"$B/mdb/b/brief-illness-perception-questionnaire-data.html",Table:"brief-illness-perception-questionnaire-spardac",form_module:"brief-illness-perception-questionnaire-form-spardac"},
         "brief-illness-perception-questionnaire-form-spardac":   {url:"$B/mdb/b/brief-illness-perception-questionnaire-form.html",Table:"brief-illness-perception-questionnaire-spardac"},
+        "breif-sexual-function-inventory-data-spardac":   {url:"$B/mdb/b/breif-sexual-function-inventory-data.html",Table:"breif-sexual-function-inventory-spardac",form_module:"breif-sexual-function-inventory-form-spardac"},
+        "breif-sexual-function-inventory-form-spardac":   {url:"$B/mdb/b/breif-sexual-function-inventory-form.html",Table:"breif-sexual-function-inventory-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
