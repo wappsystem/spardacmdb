@@ -149,6 +149,10 @@
         "breif-sexual-function-inventory-form-spardac":   {url:"$B/mdb/b/breif-sexual-function-inventory-form.html",Table:"breif-sexual-function-inventory-spardac"},
         "female-sexual-function-index-data-spardac":   {url:"$B/mdb/f/female-sexual-function-index-data.html",Table:"female-sexual-function-index-spardac",form_module:"female-sexual-function-index-form-spardac"},
         "female-sexual-function-index-form-spardac":   {url:"$B/mdb/f/female-sexual-function-index-form.html",Table:"female-sexual-function-index-spardac"},
+        "three-factor-eating-questionnaire-data-spardac":   {url:"$B/mdb/t/three-factor-eating-questionnaire-data.html",Table:"three-factor-eating-questionnaire-spardac",form_module:"three-factor-eating-questionnaire-form-spardac"},
+        "three-factor-eating-questionnaire-form-spardac":   {url:"$B/mdb/t/three-factor-eating-questionnaire-form.html",Table:"three-factor-eating-questionnaire-spardac"},
+        "glasgow-content-of-thoughts-inventory-data-spardac":   {url:"$B/mdb/g/glasgow-content-of-thoughts-inventory-data.html",Table:"glasgow-content-of-thoughts-inventory-spardac",form_module:"glasgow-content-of-thoughts-inventory-form-spardac"},
+        "glasgow-content-of-thoughts-inventory-form-spardac":   {url:"$B/mdb/g/glasgow-content-of-thoughts-inventory-form.html",Table:"glasgow-content-of-thoughts-inventory-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
