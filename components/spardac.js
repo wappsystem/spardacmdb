@@ -153,6 +153,14 @@
         "three-factor-eating-questionnaire-form-spardac":   {url:"$B/mdb/t/three-factor-eating-questionnaire-form.html",Table:"three-factor-eating-questionnaire-spardac"},
         "glasgow-content-of-thoughts-inventory-data-spardac":   {url:"$B/mdb/g/glasgow-content-of-thoughts-inventory-data.html",Table:"glasgow-content-of-thoughts-inventory-spardac",form_module:"glasgow-content-of-thoughts-inventory-form-spardac"},
         "glasgow-content-of-thoughts-inventory-form-spardac":   {url:"$B/mdb/g/glasgow-content-of-thoughts-inventory-form.html",Table:"glasgow-content-of-thoughts-inventory-spardac"},
+        "glasgow-sleep-effort-scale-data-spardac":   {url:"$B/mdb/g/glasgow-sleep-effort-scale-data.html",Table:"glasgow-sleep-effort-scale-spardac",form_module:"glasgow-sleep-effort-scale-form-spardac"},
+        "glasgow-sleep-effort-scale-form-spardac":   {url:"$B/mdb/g/glasgow-sleep-effort-scale-form.html",Table:"glasgow-sleep-effort-scale-spardac"},
+        "pre-sleep-arousal-scale-data-spardac":   {url:"$B/mdb/p/pre-sleep-arousal-scale-data.html",Table:"pre-sleep-arousal-scale-spardac",form_module:"pre-sleep-arousal-scale-form-spardac"},
+        "pre-sleep-arousal-scale-form-spardac":   {url:"$B/mdb/p/pre-sleep-arousal-scale-form.html",Table:"pre-sleep-arousal-scale-spardac"},
+        "stanford-sleepiness-scale-data-spardac":   {url:"$B/mdb/s/stanford-sleepiness-scale-data.html",Table:"stanford-sleepiness-scale-spardac",form_module:"stanford-sleepiness-scale-form-spardac"},
+        "stanford-sleepiness-scale-form-spardac":   {url:"$B/mdb/s/stanford-sleepiness-scale-form.html",Table:"stanford-sleepiness-scale-spardac"},
+        "dbas-16-data-spardac":   {url:"$B/mdb/d/dbas-16-data.html",Table:"dbas-16-spardac",form_module:"dbas-16-form-spardac"},
+        "dbas-16-form-spardac":   {url:"$B/mdb/d/dbas-16-form.html",Table:"dbas-16-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
