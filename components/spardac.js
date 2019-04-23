@@ -161,6 +161,10 @@
         "stanford-sleepiness-scale-form-spardac":   {url:"$B/mdb/s/stanford-sleepiness-scale-form.html",Table:"stanford-sleepiness-scale-spardac"},
         "dbas-16-data-spardac":   {url:"$B/mdb/d/dbas-16-data.html",Table:"dbas-16-spardac",form_module:"dbas-16-form-spardac"},
         "dbas-16-form-spardac":   {url:"$B/mdb/d/dbas-16-form.html",Table:"dbas-16-spardac"},
+        "multidimensional-fatigue-symptom-inventory-data-spardac":   {url:"$B/mdb/m/multidimensional-fatigue-symptom-inventory-data.html",Table:"multidimensional-fatigue-symptom-inventory-spardac",form_module:"multidimensional-fatigue-symptom-inventory-form-spardac"},
+        "multidimensional-fatigue-symptom-inventory-form-spardac":   {url:"$B/mdb/m/multidimensional-fatigue-symptom-inventory-form.html",Table:"multidimensional-fatigue-symptom-inventory-spardac"},
+        "fatigue-symptom-inventory-data-spardac":   {url:"$B/mdb/f/fatigue-symptom-inventory-data.html",Table:"fatigue-symptom-inventory-spardac",form_module:"fatigue-symptom-inventory-form-spardac"},
+        "fatigue-symptom-inventory-form-spardac":   {url:"$B/mdb/f/fatigue-symptom-inventory-form.html",Table:"fatigue-symptom-inventory-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
