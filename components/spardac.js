@@ -165,6 +165,8 @@
         "multidimensional-fatigue-symptom-inventory-form-spardac":   {url:"$B/mdb/m/multidimensional-fatigue-symptom-inventory-form.html",Table:"multidimensional-fatigue-symptom-inventory-spardac"},
         "fatigue-symptom-inventory-data-spardac":   {url:"$B/mdb/f/fatigue-symptom-inventory-data.html",Table:"fatigue-symptom-inventory-spardac",form_module:"fatigue-symptom-inventory-form-spardac"},
         "fatigue-symptom-inventory-form-spardac":   {url:"$B/mdb/f/fatigue-symptom-inventory-form.html",Table:"fatigue-symptom-inventory-spardac"},
+        "hads-data-spardac":   {url:"$B/mdb/h/hads-data.html",Table:"hads-spardac",form_module:"hads-form-spardac"},
+        "hads-form-spardac":   {url:"$B/mdb/h/hads-form.html",Table:"hads-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
