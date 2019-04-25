@@ -167,6 +167,8 @@
         "fatigue-symptom-inventory-form-spardac":   {url:"$B/mdb/f/fatigue-symptom-inventory-form.html",Table:"fatigue-symptom-inventory-spardac"},
         "hads-data-spardac":   {url:"$B/mdb/h/hads-data.html",Table:"hads-spardac",form_module:"hads-form-spardac"},
         "hads-form-spardac":   {url:"$B/mdb/h/hads-form.html",Table:"hads-spardac"},
+        "pvt-data-spardac":   {url:"$B/mdb/p/pvt-data.html",Table:"pvt-spardac",form_module:"pvt-form-spardac"},
+        "pvt-form-spardac":   {url:"$B/mdb/p/pvt-form.html",Table:"pvt-spardac"},
     }
     for(m in modules){$vm.module_list[m]=modules[m];}
 })();
