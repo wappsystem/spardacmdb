@@ -56,12 +56,6 @@
 		})
 		//------------------------------------
         var calc=function(data){
-			data.Match="";
-			data.Colour="";
-			data.RespText="";
-			data.SText="";
-			data.Time="";
-			data.startTime="";
     	    var rt=data.IndivRT.split(",");
 			var res=data.Result.split(",");
             var corr=0;
@@ -138,13 +132,13 @@
 			var midY = height / 2;
 			var separation = 90;
 			var results = {
-				Match : [],
-				Time : [],
-				Colour : [],
-				SText : [],
-				RespText : [],
+				Result : [],
+				IndivRT : [],
+				ShownColour : [],
+				ShownText : [],
+				ResponseText : [],
 				timelimit,
-				startTime
+				StartTime : ""
 			};
 			var rects = [];
 			ctx.clearRect(0, 0, width, height);
@@ -156,7 +150,6 @@
 					pair = pairs[Math.floor(Math.random() * pairs.length)];
 				}
 				startTime = Date.now();
-				results.startTime=get_now();
 				ctx.clearRect(0, 0, width, height);
 				ctx.fillStyle = pair[1];
 				ctx.font = '64px arial';
@@ -186,6 +179,7 @@
 				if ($("#main_canvas__ID").is(':hidden')) //hacky and ugly way :(
 					return;
 				intervals.push(setTimeout(Finish, timelimit));
+				results.StartTime=get_now();
 				NextPair();
 			}
 			var Finish = function()
@@ -195,12 +189,11 @@
 				currentSequence = 0;
 				ctx.clearRect(0, 0, width, height);
 				{
-					results.Result = results.Match.join(",");
-					results.IndivRT = results.Time.join(",");
-					results.ShownColour = results.Colour.join(",");
-					results.ShownText = results.SText.join(",");
-					results.ResponseText = results.RespText.join(",");
-					results.StartTime = results.startTime
+					results.Result = results.Result.join(",");
+					results.IndivRT = results.IndivRT.join(",");
+					results.ShownColour = results.ShownColour.join(",");
+					results.ShownText = results.ShownText.join(",");
+					results.ResponseText = results.ResponseText.join(",");
 					callback(results);
 				}
 			}
@@ -228,11 +221,11 @@
 					var r = rects[i];
 					if (x > r.x && x < r.x + r.width && y > r.y && y < r.y + r.height)
 					{
-						results.Match.push(pair[0] == r.name ? 'C' : 'W');
-						results.Time.push(Date.now() - startTime);
-						results.Colour.push(pair[1]);
-						results.SText.push(pair[0]);
-						results.RespText.push(r.name);
+						results.Result.push(pair[0] == r.name ? 'C' : 'W');
+						results.IndivRT.push(Date.now() - startTime);
+						results.ShownColour.push(pair[1]);
+						results.ShownText.push(pair[0]);
+						results.ResponseText.push(r.name);
 						NextPair();
 					}
 				}

@@ -162,7 +162,6 @@ Using the guide above, press the number on your keypad corresponding to the rand
 			var started = false;
 			var startTime;
 			var results = {
-				Time:[],
 				Count : 0,
 				TestCount_Seg1 : 0,
 				TestCount_Seg2 : 0,
@@ -171,7 +170,8 @@ Using the guide above, press the number on your keypad corresponding to the rand
 				Correct1 : 0,
 				Correct2 : 0,
 				Correct3 : 0,
-				timelimit
+				timelimit,
+				StartTime : ""
 			};
 			var Start = function()
 			{
@@ -191,7 +191,7 @@ Using the guide above, press the number on your keypad corresponding to the rand
 					$("#examples__ID").css("visibility", "hidden");
 					$('#instructions__ID').hide();
 					startTime = Date.now();
-					results.startTime=get_now();
+					results.StartTime=get_now();
 					intervals.push(setTimeout(Finish, timelimit));
 				}
 				else if (example < examples)
@@ -238,7 +238,6 @@ Using the guide above, press the number on your keypad corresponding to the rand
 					results.TestCount = results.Count;
 					results.CorrectCount = results.Correct;
 					results.Duration=(results.timelimit)/1000
-					results.StartTime = results.startTime
 					callback(results);
 				}
 			}
