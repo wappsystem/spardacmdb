@@ -57,19 +57,27 @@
 		})
 		//------------------------------------
         var calc=function(data){
-    	    var rt=data.ReactionTimes.split(",");
-            var res=data.Result.split(",");
+			data.Match="";
+			data.Colour="";
+			data.RespColour="";
+			data.SText="";
+			data.Time="";
+			data.startTime="";
+    	    var rt=data.IndivRT.split(",");
+			var res=data.Result.split(",");
             var corr=0;
             var react=0.0;
             for (var i=0;i<rt.length;i++){
     	        react=react+parseInt(rt[i]);
     	        if(res[i]=='C') corr++;
             }
-            data.SPC=(100*corr/rt.length).toFixed(1);
-            data.SPRT=(react/rt.length*0.001).toFixed(3);
-            data.STTT=(data.timelimit/1000).toString();
-            data.SCORR=corr.toString();
-            data.STotal=rt.length.toString();
+            data.TotalResponses=rt.length.toString();
+            data.CorrectResponses=corr.toString();
+            data.PercentCorrect=(100*corr/rt.length).toFixed(1);
+            data.WrongResponses=(rt.length-corr).toString();
+            data.PercentWrong=(100*(rt.length-corr)/rt.length).toFixed(1);
+            data.TotalTestTime=(data.timelimit/1000).toString();
+			data.MeanRT=(react/rt.length*0.001).toFixed(3);
     	}
 		//------------------------------------
 		var ClearIntervals = function()
@@ -132,7 +140,11 @@
 			var results = {
 				Match : [],
 				Time : [],
-				timelimit
+				Colour : [],
+				SText : [],
+				RespColour : [],
+				timelimit,
+				startTime
 			};
 
 			var rects = [];
@@ -145,6 +157,7 @@
 					pair = pairs[Math.floor(Math.random() * pairs.length)];
 				}
 				startTime = Date.now();
+				results.startTime=get_now();
 				ctx.clearRect(0, 0, width, height);
 				ctx.fillStyle = pair[1];
 				ctx.font = '64px arial';
@@ -184,8 +197,11 @@
 				ctx.clearRect(0, 0, width, height);
 				{
 					results.Result = results.Match.join(",");
-					results.ReactionTimes = results.Time.join(",");
-					results.timelimit=results.timelimit;
+					results.IndivRT = results.Time.join(",");
+					results.ShownColour = results.Colour.join(",");
+					results.ShownText = results.SText.join(",");
+					results.ResponseColour = results.RespColour.join(",");
+					results.StartTime = results.startTime
 					callback(results);
 				}
 			}
@@ -215,6 +231,9 @@
 					{
 						results.Match.push(pair[1] == r.color ? 'C' : 'W');
 						results.Time.push(Date.now() - startTime);
+						results.Colour.push(pair[1]);
+						results.SText.push(pair[0]);
+						results.RespColour.push(r.color);
 						NextPair();
 					}
 				}
@@ -240,6 +259,24 @@
 				}
 			});
 			//------------------------------------
+			var get_now=function(){
+                 var today = new Date();
+                 var dd = today.getDate();
+                 var mm = today.getMonth()+1; //January is 0!
+
+				 var yyyy = today.getFullYear();
+				 var hh = today.getHours()
+				 var mn = today.getMinutes()
+				 var ss = today.getSeconds()
+                 if(dd<10){dd='0'+dd;}
+                 if(mm<10){mm='0'+mm;}
+                 if(mn<10){mn='0'+mn;}
+                 if(hh<10){hh='0'+hh;}
+                 if(ss<10){ss='0'+ss;}
+                 return hh+':'+mn+':'+ss;
+             }
+             //-------------------------------------
+
 		}
 		//------------------------------------
 	}
