@@ -15,7 +15,7 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.2.1.min.js"></script>
     <script boot-up>
         //------------------------------------
-        $vm={};$vm.ver=[0.74,0.74]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
+        $vm={};$vm.ver=[0.75,0.75]; //increase ver[0] if any module changed, increase ver[1] if vm.js changed
         //------------------------------------
         //app urls
         $vm.public_url_$A='https://spardac.wappsystem.com.au';
@@ -26,7 +26,7 @@
         //where are your start modules
         $vm.start_modules=[
             "$A/app.html",
-            "$B/mdb/f/frame.html",
+            "$A/frame.html",
         ]
         //------------------------------------
         //modules used in this app
@@ -37,7 +37,7 @@
         $vm.app_modules=[
             "$A/components/spardac-home.js",
             "$A/components/spardac.js",
-            "$B/mdb/common.js",
+            "$A/components/common.js",
         ]
         //------------------------------------
         
