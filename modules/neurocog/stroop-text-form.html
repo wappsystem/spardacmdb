@@ -192,6 +192,7 @@
 					results.Result = results.Result.join(",");
 					results.IndivRT = results.IndivRT.join(",");
 					results.ShownColour = results.ShownColour.join(",");
+					results.ShownColour = results.ShownColour.replace(/red/g,"RED").replace(/lime/g,"GREEN").replace(/blue/g,"BLUE");
 					results.ShownText = results.ShownText.join(",");
 					results.ResponseText = results.ResponseText.join(",");
 					callback(results);
