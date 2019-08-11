@@ -106,6 +106,8 @@
         "dsst-form-spardac":                    {url:"$H/m/neurocog/dsst-form.html",Table:"dsst-spardac"},
         "finger-tapping-data-spardac":          {url:"$H/m/neurocog/finger-tapping-data.html",Table:"finger-tapping-spardac",form_module:"finger-tapping-form-spardac"},
         "finger-tapping-form-spardac":          {url:"$H/m/neurocog/finger-tapping-form.html",Table:"finger-tapping-spardac"},
+        "finger-tapping12-data-spardac":          {url:"$H/m/neurocog/finger-tapping12-data.html",Table:"finger-tapping12-spardac",form_module:"finger-tapping12-form-spardac"},
+        "finger-tapping12-form-spardac":          {url:"$H/m/neurocog/finger-tapping12-form.html",Table:"finger-tapping12-spardac"},
         "letter-cancellation-data-spardac":     {url:"$H/m/neurocog/letter-cancellation-data.html",Table:"letter-cancellation-spardac",form_module:"letter-cancellation-form-spardac"},
         "letter-cancellation-form-spardac":     {url:"$H/m/neurocog/letter-cancellation-form.html",Table:"letter-cancellation-spardac"},
         "nback1-data-spardac":                  {url:"$H/m/neurocog/nback1-data.html",Table:"nback1-spardac",form_module:"nback1-form-spardac"},
