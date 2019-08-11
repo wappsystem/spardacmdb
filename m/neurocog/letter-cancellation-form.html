@@ -134,6 +134,9 @@
 			data.duration_4=dur[4];data.hits_4=hits[4];data.omissions_4=omis[4];data.commissions_4=comm[4];
 			data.duration_5=dur[5];data.hits_5=hits[5];data.omissions_5=omis[5];data.commissions_5=comm[5];
 			data.duration_6=dur[6];data.hits_6=hits[6];data.omissions_6=omis[6];data.commissions_6=comm[6];
+			data.Average_Hits=((parseInt(data.hits_0)+parseInt(data.hits_1)+parseInt(data.hits_2)+parseInt(data.hits_3)+parseInt(data.hits_4)+parseInt(data.hits_5))/6).toFixed(1);
+			data.Average_Omissions=((parseInt(data.omissions_0)+parseInt(data.omissions_1)+parseInt(data.omissions_2)+parseInt(data.omissions_3)+parseInt(data.omissions_4)+parseInt(data.omissions_5))/6).toFixed(1);
+			data.Average_Commissions=((parseInt(data.commissions_0)+parseInt(data.commissions_1)+parseInt(data.commissions_2)+parseInt(data.commissions_3)+parseInt(data.commissions_4)+parseInt(data.commissions_5))/6).toFixed(1);
 		}
 		//------------------------------------
 		var data_process=function(data){

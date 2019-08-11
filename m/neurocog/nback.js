@@ -195,7 +195,6 @@ var third_party=function(containerID,callback)
     var angle = 60;
     var radius1 = 10;
     var radius2 = 35;
-    var numtrials = 53; //This is the normal number of trials.
     var numpretrials = nback;
     var cuestarttostimulusstarttime = 1500;
     var interstimulustime = 4500;
