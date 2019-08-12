@@ -116,6 +116,8 @@
         "nback2-form-spardac":                  {url:"$H/m/neurocog/nback2-form.html",Table:"nback2-spardac",task_name:"2-back"},
         "nback3-data-spardac":                  {url:"$H/m/neurocog/nback3-data.html",Table:"nback3-spardac",form_module:"nback3-form-spardac"},
         "nback3-form-spardac":                  {url:"$H/m/neurocog/nback3-form.html",Table:"nback3-spardac",task_name:"3-Back"},
+        "nback-upload-data-spardac":                  {url:"$H/m/neurocog/nback-upload-data.html",Table:"nback-upload-spardac",form_module:"nback-upload-form-spardac"},
+        "nback-upload-form-spardac":                  {url:"$H/m/neurocog/nback-upload-form.html",Table:"nback-upload-spardac",task_name:"N-Back Calculation Check"},
         "stroop-colour-data-spardac":           {url:"$H/m/neurocog/stroop-colour-data.html",Table:"stroop-colour-spardac",form_module:"stroop-colour-form-spardac"},
         "stroop-colour-form-spardac":           {url:"$H/m/neurocog/stroop-colour-form.html",Table:"stroop-colour-spardac"},
         "stroop-text-data-spardac":             {url:"$H/m/neurocog/stroop-text-data.html",Table:"stroop-text-spardac",form_module:"stroop-text-form-spardac"},
