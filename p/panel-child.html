@@ -2,7 +2,8 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
         	<form class="form-inline">
-        		<button type=button id=count__ID class='btn btn-secondary'>Count</button>
+				<button type=button id=count__ID class='btn btn-secondary'>Count</button> 
+				<span class="small font-italic text-muted mt-1">Shows the number of records<br>Entries for one participant.</span>
         		<span id=info__ID></span>
         	</form>
         	<span id=elapsed__ID style='float:right'></span>
@@ -87,7 +88,7 @@
     				$('#info__ID').text("No individual participant info was found.");
     				return;
     			}
-    			var info="Participant:"+participant_info(participant_record);
+    			var info="Participant: "+participant_info(participant_record);
     			if(old_info!=info){
     				old_info=info;
     				set_counting();
