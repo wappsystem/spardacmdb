@@ -23,6 +23,7 @@ m.cell_render=function(records,I,field,td){
     switch(field){
         case '_Status':
             td.html("<span style='color:"+records[I].Data['sysStatus']+"'>&#x25cf;</span>");
+            td.css('text-align','center');
             break;
         case '_Participant_ID':
             td.html(records[I].Data.Participant_uid);
@@ -33,6 +34,17 @@ m.cell_render=function(records,I,field,td){
             td.html("<u style='cursor:pointer'>Notes</u>");
             td.find('u').on('click',function(){
                 $vm.load_module(notes,'',{task_name:m.task_name,task_uid:records[I].UID,participant_uid:records[I].Data.Participant_uid})
+            })
+            break;
+        case '_Lock':
+            var lk=0; if(records[I].LK==1) lk=1;
+            var       h="<u i="+I+" style='cursor:pointer;color:green;'><i class='fa fa-lock-open'></i></u>";
+            if(lk==1) h="<u i="+I+" style='cursor:pointer;color:red;'><i class='fa fa-lock'></i></u>";
+            td.html(h);
+            td.css('text-align','center');
+            td.find('u').on('click',function(){
+                var _i=$(this).attr('i');
+                process_lock(_i);
             })
             break;
     }
@@ -111,4 +123,16 @@ m.new=function(){
         $vm.load_module(m.form_module,'',{participant_record:participant_record,goback:1});
     }
 }
-//-------------------------------------
+//-------------------------------------    
+var process_lock=function(I){
+    var lk=0; if(m.records[I].LK==1) lk=1;
+    var id=m.records[I]._id;    
+    var to_do_lock=0; if(lk==0) to_do_lock=1;
+    $vm.request({cmd:"lock",id:id,table:m.Table,lock:to_do_lock},function(res){
+        //console.log(res)
+        var $td=$('#grid__ID tr:nth-child('+(I+2)+')').find('td').eq(2);
+        m.records[I].LK=to_do_lock;
+        m.cell_render(m.records,I,'_Lock',$td);
+    });
+
+}//-------------------------------------
