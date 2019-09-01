@@ -18,6 +18,46 @@ m.load=function(){
         $('#export_section__ID').show();
     }
 }
+//-------------------------------
+m.export_records=function(){
+    tabledata=m.Table;
+    m.Table=$vm.module_list['participant-data'].Table;
+    var participant_rec={};
+    var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
+    open_model__ID();
+    $vm.request(req,function(N,i,txt){
+        //console.log(i+"/"+N);
+        $('#msg__ID').text((100*i/N).toFixed(0)+"%");
+        if(i==-1){
+            var len=txt.length;
+            n_txt="["+txt.substring(5,len-9)+"]";
+            participant_rec=JSON.parse(n_txt);
+            //$vm.download_csv(m.Table+".csv",o);
+            close_model__ID();
+            m.Table=tabledata;
+            var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
+            open_model__ID();
+            $vm.request(req,function(N,i,txt){
+                //console.log("B"+i+"/"+N);
+                $('#msg__ID').text((100*i/N).toFixed(0)+"%");
+                if(i==-1){
+                    var len=txt.length;
+                    var data_rec="["+txt.substring(5,len-9)+"]";
+                    var o=JSON.parse(data_rec);
+                    //console.log(JSON.stringify(o))
+                    var k=0;
+                    for(var i=0;i<participant_rec.length;i++){
+                        if(o[k].Participant_uid!=participant_rec[i].ID) o.splice(i,0,{"Participant_uid":participant_rec[i].ID});
+                        k++;
+                    }
+                    $vm.download_csv(m.Table+".csv",o);
+                    close_model__ID();
+                }
+            });
+        }
+    });
+    
+}
 //-------------------------------------
 m.cell_render=function(records,I,field,td){
     switch(field){
