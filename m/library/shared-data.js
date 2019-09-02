@@ -19,7 +19,7 @@ m.load=function(){
     }
 }
 //-------------------------------
-/*m.export_records=function(){
+m.export_records=function(){
     tabledata=m.Table;
     m.Table=$vm.module_list['participant-data'].Table;
     var participant_rec={};
@@ -32,6 +32,7 @@ m.load=function(){
             var len=txt.length;
             n_txt="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(n_txt);
+            console.log(JSON.stringify(participant_rec))
             //$vm.download_csv(m.Table+".csv",o);
             close_model__ID();
             m.Table=tabledata;
@@ -44,20 +45,37 @@ m.load=function(){
                     var len=txt.length;
                     var data_rec="["+txt.substring(5,len-9)+"]";
                     var o=JSON.parse(data_rec);
-                    //console.log(JSON.stringify(o))
-                    var k=0;
-                    for(var i=0;i<participant_rec.length;i++){
-                        if(o[k].Participant_uid!=participant_rec[i].ID) o.splice(i,0,{"Participant_uid":participant_rec[i].ID});
-                        k++;
+                    var fields_ex=m.fields.replace("_Participant_ID","Participant_uid")
+                    var export_fields=fields_ex.split(',');
+                    //Order by m.fields
+                    export_fields=export_fields.slice(4,export_fields.length-3);
+                    var oo=JSON.parse(JSON.stringify(o,export_fields));
+                    //Create an empty item so download.csv will create all headings
+                    var item={}
+                    for(var i=0;i<export_fields.length;i++){
+                        item[export_fields[i]]="";
                     }
-                    $vm.download_csv(m.Table+".csv",o);
+                    var output_data=[];
+                    for(var i=0;i<participant_rec.length;i++){
+                        for (var k=0;k<oo.length;k++){
+                            if(oo[k].Participant_uid==participant_rec[i].ID){
+                                output_data.push(oo[k]);
+                                break;
+                            }
+                            if(k==oo.length-1) {item.Participant_uid=participant_rec[i].ID; output_data.push(item)}
+                        }
+                    }
+                    var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID")
+                    output_data=JSON.parse(tmp);
+                    //console.log(JSON.stringify(output_data))
+                    $vm.download_csv(m.Table+".csv",output_data);
                     close_model__ID();
                 }
             });
         }
     });
     
-}*/
+}
 //-------------------------------------
 m.cell_render=function(records,I,field,td){
     switch(field){
