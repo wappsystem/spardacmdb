@@ -180,6 +180,8 @@
         "gds-form-spardac":                     {url:"$H/m/library/gds-form.html",Table:"gds-spardac"},
         "ispq-data-spardac":                    {url:"$H/m/library/ispq-data.html",Table:"ispq-spardac",form_module:"ispq-form-spardac"},
         "ispq-form-spardac":                    {url:"$H/m/library/ispq-form.html",Table:"ispq-spardac"},
+        "tipi-data-spardac":                    {url:"$H/m/library/tipi-data.html",Table:"tipi-spardac",form_module:"tipi-form-spardac"},
+        "tipi-form-spardac":                    {url:"$H/m/library/tipi-form.html",Table:"tipi-spardac"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];
