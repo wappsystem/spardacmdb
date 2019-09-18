@@ -181,17 +181,20 @@
       VmInclude:__CURRENT_PATH__/shared-form.js
       //-------------------------------------
       var position="";
+      var dx;
       //-------------------------------------
       var load2=m.load;
       m.load=function(){
         load2();
         if(m.input.record == undefined){
           $('#indicator__ID').hide();
+          position="";
         }
         else{
           $('#indicator__ID').show();
-          position=m.input.record.data.EQ_5D_6_scale
+          position=parseInt(m.input.record.Data.EQ_5D_6_scale);
           dx=position/100*510-565
+          dx=-dx;
           $('#indicator__ID').css('margin-top',dx.toString()+'px');
         }
       }
@@ -200,7 +203,7 @@
           $('#indicator__ID').show()
           var x0=$('.EQ_5D_6__ID').offset().top;
           var x1=event.pageY
-          var dx=x1-x0-2;
+          dx=x1-x0-2;
           //alert(x1+'-'+x0+' '+dx)
           if(dx<55) dx=55;
           if(dx>565) dx=565;
