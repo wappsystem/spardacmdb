@@ -74,13 +74,13 @@ m.before_submit=function(data){
     if($("#F__ID input[name=_status]:checked").val()=='' || $("#F__ID input[name=_status]:checked").val()==undefined)
         data.sysStatus=status_of_data(data);
     else data.sysStatus=$("#F__ID input[name=_status]:checked").val()
-};
+}
 //-------------------------------------
 var status_of_data=function(data){
     var N1=0,N2=0;
     for(key in data){
-        if(key!="" && key!="Participant" && key!="Participant_uid" && key!="sysStatus"){
-            //console.log(key+' - '+ data[key]);
+        if(key!="" && key!="Participant" && key!="Participant_uid" && key!="sysStatus" && key!="_status"){
+            console.log(key+' - '+ data[key]);
             N2++;
             if(data[key]=='') N1++;
         }
