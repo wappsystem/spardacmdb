@@ -32,7 +32,7 @@ m.export_records=function(){
             var len=txt.length;
             n_txt="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(n_txt);
-            console.log(JSON.stringify(participant_rec))
+            //console.log(JSON.stringify(participant_rec))
             //$vm.download_csv(m.Table+".csv",o);
             close_model__ID();
             m.Table=tabledata;
@@ -47,22 +47,53 @@ m.export_records=function(){
                     var o=JSON.parse(data_rec);
                     var fields_ex=m.fields.replace("_Participant_ID","Participant_uid")
                     var export_fields=fields_ex.split(',');
+                    for (var j=0;j<export_fields.length;j++){
+                        var tmp=export_fields[j].split('|')
+                        if (tmp.length>1) export_fields[j]=tmp[1];
+                    }
+                    //Add undefined values to first record (lowest Participant_uid) to get complete records for all entries. 
+                    o.sort(function(a, b) {
+                        return parseFloat(a.Participant_uid) - parseFloat(b.Participant_uid);
+                    });
+                    for (var j=2;j<export_fields.length-3;j++){
+                        //console.log(export_fields[j])
+                        if(export_fields[j].indexOf("_")!=0){
+                            if(o[0][export_fields[j]]==undefined){
+                                o[0][export_fields[j]]="";
+                            }
+                        }
+                    }
                     //Order by m.fields
                     export_fields=export_fields.slice(4,export_fields.length-3);
+                    console.log(JSON.stringify(export_fields))
                     var oo=JSON.parse(JSON.stringify(o,export_fields));
+                    //console.log(JSON.stringify(oo))
                     //Create an empty item so download.csv will create all headings
-                    var item={}
-                    for(var i=0;i<export_fields.length;i++){
-                        item[export_fields[i]]="";
-                    }
                     var output_data=[];
-                    for(var i=0;i<participant_rec.length;i++){
-                        for (var k=0;k<oo.length;k++){
-                            if(oo[k].Participant_uid==participant_rec[i].ID){
-                                output_data.push(oo[k]);
-                                break;
+                    for(var ii=0;ii<participant_rec.length;ii++){
+                        if(oo.length>0){
+                            for (var k=0;k<oo.length;k++){
+                                if(oo[k].Participant_uid==participant_rec[ii].ID){
+                                    output_data.push(oo[k]);
+                                    break;
+                                }
+                                if(k==oo.length-1) {
+                                    var item={}
+                                    for(var l=0;l<export_fields.length;l++){
+                                        item[export_fields[l]]="";
+                                    }
+                                    item.Participant_uid=participant_rec[ii].ID;
+                                    output_data.push(item)
+                                }
+                            }    
+                        }
+                        else{
+                            var item={}
+                            for(var l=0;l<export_fields.length;l++){
+                                item[export_fields[l]]="";
                             }
-                            if(k==oo.length-1) {item.Participant_uid=participant_rec[i].ID; output_data.push(item)}
+                            item.Participant_uid=participant_rec[ii].ID;
+                            output_data.push(item)
                         }
                     }
                     var tmp=JSON.stringify(output_data).replace(/Participant_uid/g,"Participant ID")
@@ -73,8 +104,7 @@ m.export_records=function(){
                 }
             });
         }
-    });
-    
+    });    
 }
 //-------------------------------------
 m.cell_render=function(records,I,field,td){
@@ -96,8 +126,8 @@ m.cell_render=function(records,I,field,td){
             break;
         case '_Lock':
             var lk=0; if(records[I].LK==1) lk=1;
-            var       h="<u i="+I+" style='cursor:pointer;color:green;'><i class='fa fa-lock-open'></i></u>";
-            if(lk==1) h="<u i="+I+" style='cursor:pointer;color:red;'><i class='fa fa-lock'></i></u>";
+            var       h="<u i="+I+" style='cursor:pointer;color:green;'><i class='fas fa-lock-open'></i></u>";
+            if(lk==1) h="<u i="+I+" style='cursor:pointer;color:red;'><i class='fas fa-lock'></i></u>";
             td.html(h);
             td.css('text-align','center');
             td.find('u').on('click',function(){
