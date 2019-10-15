@@ -94,8 +94,8 @@
 					data.LRLS=((parseInt(correct[3])+parseInt(correct[4])+parseInt(correct[5]))/3).toFixed(1);
 					data.ERES=((parseInt(error[0])+parseInt(error[1])+parseInt(error[2]))/3).toFixed(1);
 					data.LRES=((parseInt(error[3])+parseInt(error[4])+parseInt(error[5]))/3).toFixed(1);
-					data.ERRT=((parseInt(time[0])+parseInt(time[1])+parseInt(time[2]))/3).toFixed(2);
-					data.LRRT=((parseInt(time[3])+parseInt(time[4])+parseInt(time[5]))/3).toFixed(2);
+					data.ERRT=((parseFloat(time[0])+parseFloat(time[1])+parseFloat(time[2]))/3).toFixed(2);
+					data.LRRT=((parseFloat(time[3])+parseFloat(time[4])+parseFloat(time[5]))/3).toFixed(2);
 					var tb=$vm.module_list['finger-tapping12-before-data-spardac'].Table
 					var qry={'Data.Participant_uid':$("input[name='Participant_uid']").val()}
 					var post_learning="";

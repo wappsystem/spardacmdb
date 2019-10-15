@@ -100,8 +100,8 @@
 					data.PoTLS=((parseInt(correct[9])+parseInt(correct[10])+parseInt(correct[11]))/3).toFixed(1);
 					data.PreTES=((parseInt(error[0])+parseInt(error[1])+parseInt(error[2]))/3).toFixed(1);
 					data.PoTES=((parseInt(error[9])+parseInt(error[10])+parseInt(error[11]))/3).toFixed(1);
-					data.PreTRT=((parseInt(time[0])+parseInt(time[1])+parseInt(time[2]))/3).toFixed(2);
-					data.PoTRT=((parseInt(time[9])+parseInt(time[10])+parseInt(time[11]))/3).toFixed(2);
+					data.PreTRT=((parseFloat(time[0])+parseFloat(time[1])+parseFloat(time[2]))/3).toFixed(2);
+					data.PoTRT=((parseFloat(time[9])+parseFloat(time[10])+parseFloat(time[11]))/3).toFixed(2);
 		}
 		//------------------------------------
 		var ClearIntervals = function()
