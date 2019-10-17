@@ -107,7 +107,7 @@
         "dsst-data-spardac":                    {url:"$H/m/neurocog/dsst-data.html",Table:"dsst-spardac",form_module:"dsst-form-spardac"},
         "dsst-form-spardac":                    {url:"$H/m/neurocog/dsst-form.html",Table:"dsst-spardac"},
         "finger-tapping6-after-data-spardac":   {url:"$H/m/neurocog/finger-tapping6-after-data.html",Table:"finger-tapping-spardac",form_module:"finger-tapping6-after-form-spardac"},
-        "finger-tapping6-after-form-spardac":   {url:"$H/m/neurocog/finger-tapping6-after-form.html",Table:"finger-tapping-spardac",task_name:"Finger Tapping - Morning"},
+        "finger-tapping6-after-form-spardac":   {url:"$H/m/neurocog/finger-tapping6-after-form.html",Table:"finger-tapping-spardac",Table2:"finger-tapping12-spardac",task_name:"Finger Tapping - Morning"},
         "finger-tapping-alt-data-spardac":      {url:"$H/m/neurocog/finger-tapping-data.html",Table:"finger-tapping-alt-spardac",form_module:"finger-tapping-alt-form-spardac"},
         "finger-tapping-alt-form-spardac":      {url:"$H/m/neurocog/finger-tapping-alt-form.html",Table:"finger-tapping-alt-spardac"},
         "finger-tapping12-before-data-spardac": {url:"$H/m/neurocog/finger-tapping12-before-data.html",Table:"finger-tapping12-spardac",form_module:"finger-tapping12-before-form-spardac"},
