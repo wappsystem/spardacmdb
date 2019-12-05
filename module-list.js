@@ -188,6 +188,8 @@
         "ispq-form-spardac":                    {url:"$H/m/library/ispq-form.html",Table:"ispq-spardac"},
         "tipi-data-spardac":                    {url:"$H/m/library/tipi-data.html",Table:"tipi-spardac",form_module:"tipi-form-spardac"},
         "tipi-form-spardac":                    {url:"$H/m/library/tipi-form.html",Table:"tipi-spardac"},
+        "pvt-cal-data-spardac":                    {url:"$H/m/library/pvt-cal-data.html",Table:"pvt-cal-spardac",form_module:"pvt-cal-form-spardac"},
+        "pvt-cal-form-spardac":                    {url:"$H/m/library/pvt-cal-form.html",Table:"pvt-cal-spardac"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];
