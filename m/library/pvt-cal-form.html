@@ -82,6 +82,8 @@
                     var ready=false;
                     var count=false;
                     var delay=0;
+                    var start_time=0;
+                    var first_click=0;
                     if(lines.length>0){
                         for(var i=0;i<lines.length;i++){
                             var line=lines[i].split('\t');
@@ -90,19 +92,25 @@
                             //line[0] low line[1] low - stop count
                             //line[0] high line[1] low - don't count
                             //line[0] high line[1] high - ready
+                            if(first_click==0){
+                                if(parseFloat(line[0])<2){
+                                    first_click=i;
+                                }
+                            }
                             if(line[0]>2 && line[1]>1 ) ready=true;
                             if(parseFloat(line[1])<1 && line[0]>2 && ready && count==false){
                                 console.log('Start|'+i)
                                 count=true;
-                                
+                                start_time=i;                                
                             }
                             if(parseFloat(line[0])<2 && count && ready){
                                 console.log(reaction/2+'|'+i)
-                                reaction_time+=(reaction/2).toString()+String.fromCharCode(13)+String.fromCharCode(10);
+                                reaction_time+=(reaction/2).toString()+','+((start_time-first_click)/2000).toFixed(1)+String.fromCharCode(13)+String.fromCharCode(10);
                                 count=false;
                                 ready=false;
                                 reaction=0;
                                 delay=0;
+                                start_time=0;
                             }
                             if(count){
                                 reaction++;
@@ -111,11 +119,13 @@
                                     reaction=0;
                                     delay=0;
                                     count=false;
+                                    start_time=0;
                                 }
                                 if(reaction>2000){
                                     reaction=0;
-                                        delay=0;
-                                        count=false;
+                                    delay=0;
+                                    count=false;
+                                    start_time=0;
                                 }
                             }
                         }
