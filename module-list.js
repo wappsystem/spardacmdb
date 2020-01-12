@@ -180,6 +180,8 @@
         "hads-form-spardac":                    {url:"$H/m/library/hads-form.html",Table:"hads-spardac"},
         "pvt-data-spardac":                     {url:"$H/m/library/pvt-data.html",Table:"pvt-spardac",form_module:"pvt-form-spardac"},
         "pvt-form-spardac":                     {url:"$H/m/library/pvt-form.html",Table:"pvt-spardac"},
+        "pvt-pc-data-spardac":                     {url:"$H/m/library/pvt-pc-data.html",Table:"pvt-pc-spardac",form_module:"pvt-pc-form-spardac"},
+        "pvt-pc-form-spardac":                     {url:"$H/m/library/pvt-pc-form.html",Table:"pvt-pc-spardac"},
         "stop-bang-data-spardac":               {url:"$H/m/library/stop-bang-data.html",Table:"stop-bang-spardac",form_module:"stop-bang-form-spardac"},
         "stop-bang-form-spardac":               {url:"$H/m/library/stop-bang-form.html",Table:"stop-bang-spardac"},
         "gds-data-spardac":                     {url:"$H/m/library/gds-data.html",Table:"gds-spardac",form_module:"gds-form-spardac"},
