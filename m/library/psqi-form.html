@@ -849,8 +849,8 @@
                 var v25=$("input[name='PSQI10e']").val();
                 var v26=$("input[name='PSQI10ei']:checked").val();
                 var vpsqi1=0;
-                if(v4>=7) vpsqi1=0;
-                if(v4<7 && v4>=6) vpsqi1=1;
+                if(v4>7) vpsqi1=0;
+                if(v4<=7 && v4>=6) vpsqi1=1;
                 if(v4<6 && v4>=5) vpsqi1=2;
                 if(v4<5) vpsqi1=3;
                 data.PSQIDURAT=vpsqi1.toString();
@@ -861,6 +861,7 @@
                 if(vpsqi2>=1 && vpsqi2<=9) data.PSQIDISTB="1";
 		        if(vpsqi2>9 && vpsqi2<=18) data.PSQIDISTB="2";
 		        if(vpsqi2>18) data.PSQIDISTB="3";
+                console.log('Sleep dist: '+vpsqi3i+' - '+ v5i+' - '+ data.PSQIDISTB)
                 var vpsqi3=0;
                 if(v2>=0 && v2<=15) vpsqi3=0;
                 if(v2>15 && v2<=30) vpsqi3=1;
@@ -872,6 +873,7 @@
                 if((vpsqi3i+v5i)>=1 && (vpsqi3i+v5i)<=2) data.PSQILATEN="1";
                 if((vpsqi3i+v5i)>=3 && (vpsqi3i+v5i)<=4) data.PSQILATEN="2";
                 if((vpsqi3i+v5i)>=5 && (vpsqi3i+v5i)<=6) data.PSQILATEN="3";
+                console.log('Sleep laten: '+vpsqi3i+' - '+ v5i+' - '+ data.PSQILATEN)
                 var v18i=parseInt(v18)
                 var v19i=parseInt(v19)
                 if((v18i+v19i)==0) data.PSQIDAYDYS="0";
@@ -888,6 +890,7 @@
                 var endInputMins = parseInt(endTimeArray[1]);
                 var startMin = startInputHrs*60 + startInputMins;
                 var endMin = endInputHrs*60 + endInputMins;
+                console.log(startMin +' - '+endMin );
                 var result;
                 if (endMin < startMin) {
                     var minutesPerDay = 24*60; 
@@ -897,8 +900,10 @@
                 else {
                     result = endMin - startMin;
                 }
-                v4=parseInt(v4)*60*100;
+                console.log(result);
+                v4=parseFloat(v4)*60*100;
                 var vpsqi4=v4/result;
+                console.log(v4+' - '+result+' - '+vpsqi4);
                 if(vpsqi4>=85) data.PSQIHSE="0";
                 if(vpsqi4<85 && vpsqi4>=75) data.PSQIHSE="1";
                 if(vpsqi4<75 && vpsqi4>=65) data.PSQIHSE="2";
