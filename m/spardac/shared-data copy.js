@@ -20,96 +20,16 @@ m.load=function(){
 }
 //-------------------------------
 m.export_records=function(){
-    var req_count=0;
     tabledata=m.Table;
     m.Table=$vm.module_list['participant-data'].Table;
     var participant_rec={};
     var req={cmd:"export",table:m.Table,I1:m.I1,search:$('#keyword__ID').val()}
-    var output_data=[];
     open_model__ID();
     $vm.request(req,function(N,i,txt){
         //console.log(i+"/"+N);
         $('#msg__ID').text((100*i/N).toFixed(0)+"%");
         if(i==-1){
-            req_count++;
             var len=txt.length;
-            var data_rec="["+txt.substring(5,len-9)+"]";
-            participant_rec=JSON.parse(data_rec);
-            console.log(JSON.stringify(participant_rec))
-        }
-    });
-    var task_rec={};
-    var req={cmd:"export",table:tabledata,I1:m.I1,search:$('#keyword__ID').val()}
-    $vm.request(req,function(N,i,txt){
-        //console.log(i+"/"+N);
-        $('#msg__ID').text((100*i/N).toFixed(0)+"%");
-        if(i==-1){
-            req_count++;
-            var len=txt.length;
-            var data_rec="["+txt.substring(5,len-9)+"]";
-            task_rec=JSON.parse(data_rec);
-            console.log(JSON.stringify(task_rec))
-        }
-    });
-    check();
-    function check(){
-        if (req_count<2){
-            setTimeout(function(){
-                console.log(req_count)
-                check();
-            },100);
-        }
-        else{
-            combine_records()
-        }
-    }
-    var combine_records=function(){
-        var fields_ex=m.fields.replace("_Participant_ID","Participant_uid")
-        var export_fields=fields_ex.split(',');
-        export_fields=export_fields.slice(6,export_fields.length-3);
-        //Participants export fields Specified in module-list
-        var participant_export=$vm.module_list['participant-data'].participant_export;
-        var participant_fields=participant_export.split(',');
-        //Create empty object with all export fields. Participant and Task
-        var empty_item={}
-        for(var i=0;i<participant_fields.length;i++){
-            empty_item[participant_fields[i]]="";
-        }
-        for(var i=0;i<export_fields.length;i++){
-            empty_item[export_fields[i]]="";
-        }
-        var empty_item2={};
-        //Loop through all participants and fill in task fields linked to them.
-        //Put all in output_data object
-        for(var i=0;i<participant_rec.length;i++){
-            //console.log("PPP "+participant_rec[i].ID)
-            for (var k=0;k<task_rec.length;k++){
-                if(task_rec[k].Participant_uid==participant_rec[i].ID){
-                    //Get a new empty object
-                    empty_item2=(JSON.parse(JSON.stringify(empty_item)));
-                    for( var l=0;l<participant_fields.length;l++){
-                        if(participant_rec[i].hasOwnProperty(participant_fields[l])){
-                            empty_item2[participant_fields[l]]=participant_rec[i][participant_fields[l]];
-                        }
-                    }
-                    for( var l=0;l<export_fields.length;l++){
-                        if(task_rec[k].hasOwnProperty(export_fields[l])){
-                            empty_item2[export_fields[l]]=task_rec[k][export_fields[l]];
-                        }
-                    }
-                    output_data.push(empty_item2);
-                    break;
-                }
-            }
-        }
-        console.log(output_data)
-        var tmp=JSON.stringify(output_data).replace(/ID/,"Participant ID").replace(/"off"/g,'"N"').replace(/"on"/g,'"Y"');
-        output_data=JSON.parse(tmp);
-        $vm.download_csv(m.Table+".csv",output_data);
-    }
-    close_model__ID();
-    /*
-    var len=txt.length;
             n_txt="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(n_txt);
             //console.log(JSON.stringify(participant_rec))
@@ -184,7 +104,7 @@ m.export_records=function(){
                 }
             });
         }
-    }); */   
+    });    
 }
 //-------------------------------------
 m.cell_render=function(records,I,field,td){

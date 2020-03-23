@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+	<div id="mydiv" style="left: 400px;"></div>
+	<button onclick="requestdemo()">Move DIV 400px in 2 seconds</button>
+	<div onmousedown="WhichButton(event)">Click here</div>
+
+</body>
+</html>
+
+	<style>
+		#mydiv {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    background: darkred;
+    margin-bottom: 1em;
+		}
+	</style>
+	<script>
+		var adiv
+		var starttime
+		var parttime
+		var icount=0;
+		var run=true;
+		var myReq;
+		const sleep = (milliseconds) => {
+			return new Promise(resolve => setTimeout(resolve, milliseconds))
+		}
+		function WhichButton(event) {
+			cancelAnimationFrame(myReq);
+			var endtime=new Date().getTime();
+			console.log(icount+","+(endtime-parttime));
+		}
+
+		function moveit(timestamp, el, dist, duration){
+			//if browsers don't support requestAnimationFrame, generate our own timestamp:
+			icount++;
+			var timestamp = timestamp// || new Date().getTime()
+			var runtime = timestamp - starttime
+			var progress = runtime / duration
+			progress = Math.min(progress, 1)
+			el.style.left = (dist * progress).toFixed(2) + 'px'
+			if (runtime < duration){ // if duration not met yet
+				//sleep(Math.floor(2001+ (Math.random() * 3000))).then(() => {
+					myReq=requestAnimationFrame(function(timestamp){ // call requestAnimationFrame again with parameters
+						//if(icount%10==0){
+						//	var timing=new Date().getTime()
+						//	console.log(timestamp+","+timing);
+						//}
+						moveit(timestamp, el, dist, duration)
+						parttime=new Date().getTime();
+					})
+				//})
+			}
+		}
+
+		function requestdemo(){
+			requestAnimationFrame(function(timestamp){
+				adiv = document.getElementById('mydiv')
+				starttime = timestamp || new Date().getTime() //if browser doesn't support requestAnimationFrame, generate our own timestamp
+				//console.log(starttime)
+				moveit(timestamp, adiv, 400, 5000) // 400px over 1 second
+			})
+		}
+	</script>
+</div>
