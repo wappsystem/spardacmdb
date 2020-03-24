@@ -35,7 +35,7 @@ m.export_records=function(){
             var len=txt.length;
             var data_rec="["+txt.substring(5,len-9)+"]";
             participant_rec=JSON.parse(data_rec);
-            console.log(JSON.stringify(participant_rec))
+            //console.log(JSON.stringify(participant_rec));
         }
     });
     var task_rec={};
@@ -49,7 +49,7 @@ m.export_records=function(){
             var len=txt.length;
             var data_rec="["+txt.substring(5,len-9)+"]";
             task_rec=JSON.parse(data_rec);
-            console.log(JSON.stringify(task_rec))
+            //console.log(JSON.stringify(task_rec));
         }
     });
     check();
@@ -61,7 +61,7 @@ m.export_records=function(){
             },500);
         }
         else{
-            combine_records()
+            combine_records();
         }
     }
     var combine_records=function(){
@@ -91,7 +91,6 @@ m.export_records=function(){
                 if(task_rec[kk].Participant_uid==participant_rec[ii].ID){
                     //Get a new empty object
                     empty_item2=(JSON.parse(JSON.stringify(empty_item)));
-                    console.log(empty_item2)
                     for( var ll=0;ll<participant_fields.length;ll++){
                         if(participant_rec[ii].hasOwnProperty(participant_fields[ll])){
                             empty_item2[participant_fields[ll]]=participant_rec[ii][participant_fields[ll]];
@@ -105,15 +104,13 @@ m.export_records=function(){
                     output_data.push(empty_item2);
                     break;
                 }
+                //Can't find record for this participant
                 else if(kk==task_rec.length-1){
-                    empty_item2={};
+                    empty_item2=(JSON.parse(JSON.stringify(empty_item)));
                     for( var ll=0;ll<participant_fields.length;ll++){
                         if(participant_rec[ii].hasOwnProperty(participant_fields[ll])){
                             empty_item2[participant_fields[ll]]=participant_rec[ii][participant_fields[ll]];
                         }
-                    }
-                    for( var ll=0;ll<export_fields.length;ll++){
-                        empty_item2[export_fields[ll]]="";
                     }
                     output_data.push(empty_item2)
                 }
@@ -198,32 +195,6 @@ m.data_process=function(){
         //--------------------------
     });
 }
-/*
-m.cell_render=function(records,I,field,td){
-    switch(field){
-        case '_Status':
-            td.html("<span style='color:"+records[I].Data['sysStatus']+"'>&#x25cf;</span>");
-            break;
-        case '_Participant_ID':
-            td.html(records[I].Data.Participant_uid);
-            break;
-        case '_Notes':
-            var notes='Notes';
-            if(records[I].Notes!=undefined){
-                var n1=records[I].Notes.split('\n')[0];
-                //var n2=n1.split('\n').pop();
-                if(n1.length>0){
-                    notes=n1;
-                    if(notes.length>10) notes=notes.substring(0,10)+"...";
-                }
-            }
-            td.html("<u style='cursor:pointer'>"+notes+"</u>");
-            td.find('u').on('click',function(){
-                $vm.load_module('notes','',{record:records[I]});
-            });
-            break;
-    }
-}*/
 //-------------------------------------
 m.new=function(){
     if(m.form_module!=undefined){
