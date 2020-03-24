@@ -9,7 +9,7 @@
                                                 questionnaire_setup:"online-questionnaire-setup-spardac",
                                                 online_questionnaire:"online-questionnaire-app-spardac",
                                                 participant_id:{field1:"Subject_ID",field2:"Subject_Initials"},
-                                                participant_export:"ID,Subject_ID,Screening_Number,Randomisation_Number,Subject_Intital,Gender,DOB"
+                                                participant_export:"ID,Subject_ID,Screening_Number,Randomisation_Number,Subject_Initials,Gender,DOB"
                                             },
         "participant-form":   		        {url:"$H/m/participant/participant-form.html",Table:"spardac-participant"},
 
