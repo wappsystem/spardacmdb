@@ -35,6 +35,7 @@ m.load=function(){
     if($vm.online_questionnaire==1) {
         $('#pdf__ID').hide();
         $('#participant_div__ID').hide();
+        $('#questionnaire_status__ID').hide();
     }
 //--------------------------
     if(m.input!=undefined && m.input.participant_record!=undefined){
@@ -71,8 +72,10 @@ m.before_submit=function(data){
         $vm.alert("Please select a participant. Make sure Participant ID has a number.") 
         return false;    
     }
-   data.sysStatus=status_of_data(data);
-};
+    if($("#F__ID input[name=_status]:checked").val()=='' || $("#F__ID input[name=_status]:checked").val()==undefined)
+        data.sysStatus=status_of_data(data);
+    else data.sysStatus=$("#F__ID input[name=_status]:checked").val()
+}
 //-------------------------------------
 var status_of_data=function(data){
     var N1=0,N2=0;
@@ -86,6 +89,10 @@ var status_of_data=function(data){
     var status="#FFCC00";
     if(N1==N2) 		    status='#FF0000';
     else if(N1==0)  	status='#00FF00';
+    //If online the questionnaire's required functions is checked and controlled by code. So always mark Status as DONE - Green color
+    if($vm.online_questionnaire==1) {
+        status='#00FF00';
+    }
     return status;
 }
 //-------------------------------------

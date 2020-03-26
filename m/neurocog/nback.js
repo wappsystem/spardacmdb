@@ -163,6 +163,7 @@ var data_process=function(data){
     calc(data);
     data.Participant=$('#Participant__ID').val();
     data.Participant_uid=$("input[name='Participant_uid']").val();
+    data.sysStatus='#00FF00';
     $vm.request({cmd:"insert",table:m.Table,data:data},function(res){
         if(res.status=="np"){
             alert("No permission to insert a new record in to the database.");

@@ -106,14 +106,11 @@ m.export_records=function(){
                     break;
                 }
                 else if(kk==task_rec.length-1){
-                    empty_item2={};
+                    empty_item2=(JSON.parse(JSON.stringify(empty_item)));
                     for( var ll=0;ll<participant_fields.length;ll++){
                         if(participant_rec[ii].hasOwnProperty(participant_fields[ll])){
                             empty_item2[participant_fields[ll]]=participant_rec[ii][participant_fields[ll]];
                         }
-                    }
-                    for( var ll=0;ll<export_fields.length;ll++){
-                        empty_item2[export_fields[ll]]="";
                     }
                     output_data.push(empty_item2)
                 }

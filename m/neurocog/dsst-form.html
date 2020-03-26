@@ -126,6 +126,7 @@ Using the guide above, press the number on your keypad corresponding to the rand
 			calc(data);
 			data.Participant=$('#Participant__ID').val();
 			data.Participant_uid=$("input[name='Participant_uid']").val();
+			data.sysStatus='#00FF00';
 			//alert(JSON.stringify(data));
 			$vm.request({cmd:"insert",table:m.Table,data:data},function(res){
 				if(res.status=="np"){

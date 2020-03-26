@@ -555,7 +555,30 @@
                 </div>
               </div>
               <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
-            </form>
+              <div class="form-group">
+                <div id=questionnaire_status__ID class="pb-3">
+                    <label><span>Set Status</span></label>
+                    <fieldset class="">
+                        <label class="radiobuttons">
+                            <input type="radio" name="_status" value="#FF0000">
+                            <span class="checkmark"
+                                style="background-color:#FF0000"></span>&nbsp;</label>
+                        <label class="radiobuttons">
+                            <input type="radio" name="_status" value="#FFCC00">
+                            <span class="checkmark"
+                                style="background-color:#FFCC00"></span>&nbsp;</label>
+                        <label class="radiobuttons">
+                            <input type="radio" name="_status" value="#00FF00">
+                            <span class="checkmark"
+                                style="background-color:#00FF00"></span>Manually&nbsp;&nbsp;</label>
+                        <label class="radiobuttons">
+                            <input type="radio" name="_status" value="" checked>
+                            <span class="checkmark"
+                                style="background-color:#C9C9C9"></span>Automatically</label>
+                    </fieldset>
+                </div>
+            </div>
+          </form>
           </div>
         </div>
       </div>
@@ -578,6 +601,9 @@
 
     #D__ID .radiobuttons {
       padding-left: 15px;
+    }
+    #questionnaire_status__ID .radiobuttons{
+      padding-left: 25px;
     }
   </style>
 </div>
