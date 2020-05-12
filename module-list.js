@@ -85,6 +85,8 @@
         "lifestyle-form-spardac":               {url:"$H/m/library/lifestyle-form.html",Table:"lifestyle-spardac",task_name:"Lifestyle"},
         "me-data-spardac":                      {url:"$H/m/library/me-data.html",Table:"me-spardac",form_module:"me-form-spardac"},
         "me-form-spardac":                      {url:"$H/m/library/me-form.html",Table:"me-spardac",task_name:"Horne & Östberg Morningness-Eveningness Composite Questionnaire"},
+        "me-shf-data-spardac":                  {url:"$H/m/library/me-shf-data.html",Table:"me-shf-spardac",form_module:"me-shf-form-spardac"},
+        "me-shf-form-spardac":                  {url:"$H/m/library/me-shf-form.html",Table:"me-shf-spardac",task_name:"Activity - Morningness-Eveningness Questionnaire"},
         "map-data-spardac":                     {url:"$H/m/library/map-data.html",Table:"map-spardac",form_module:"map-form-spardac"},
         "map-form-spardac":                     {url:"$H/m/library/map-form.html",Table:"map-spardac",task_name:"Multivariate Apnea Prediction Questionnaire"},
         "medical-history-data-spardac":         {url:"$H/m/library/medical-history-data.html",Table:"medical-history-spardac",form_module:"medical-history-form-spardac"},
