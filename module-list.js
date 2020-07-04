@@ -195,6 +195,10 @@
         "tipi-form-spardac":                    {url:"$H/m/library/tipi-form.html",Table:"tipi-spardac",task_name:"Ten-Item Personality Inventory (TIPI)"},
         "pvt-cal-data-spardac":                    {url:"$H/m/library/pvt-cal-data.html",Table:"pvt-cal-spardac",form_module:"pvt-cal-form-spardac"},
         "pvt-cal-form-spardac":                    {url:"$H/m/library/pvt-cal-form.html",Table:"pvt-cal-spardac"},
+        "psggrr-data-spardac":                    {url:"$H/m/library/psggrr-data.html",Table:"psggrr-spardac",form_module:"psggrr-form-spardac",task_name:"Grael Research PSG Report"},
+        "psggrr-form-spardac":                    {url:"$H/m/library/psggrr-form.html",Table:"psggrr-spardac",task_name:"Grael Research PSG Report"},
+        "psg300-data-spardac":                    {url:"$H/m/library/psg300-data.html",Table:"psg300-spardac",form_module:"psg300-form-spardac",task_name:"PSG 300 Report"},
+        "psg300-form-spardac":                    {url:"$H/m/library/psg300-form.html",Table:"psg300-spardac",task_name:"PSG 300 Report"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];
