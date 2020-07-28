@@ -185,6 +185,9 @@ m.data_process=function(){
         $("#grid__ID td[data-id=_Notes]").each(function(index){
             if(m.records[index].sys_x!=undefined){
                 var t=m.records[index].sys_x.Title;
+                if(t==""){
+                    t="No title"
+                }
                 var c=m.records[index].sys_x.Color
                 $(this).html("<u style='cursor:pointer;color:"+c+"'>"+t+"</u>");
                 $(this).find('u').on('click',function(){

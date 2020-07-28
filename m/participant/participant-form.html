@@ -115,6 +115,8 @@
 			//-------------------------------------
 			m.before_submit = function (data, index) {
 				var I1 = $('#F__ID input[name=Randomisation_Number').val(); if (I1 != '' && I1 != '-') index.I1 = parseInt(I1);
+				var nd=new Date()
+				index.I2=nd.getFullYear()+"-"+$vm.pad(nd.getMonth()+1,2)+"-"+$vm.pad(nd.getDate(),2);
 			}
 			//-------------------------------------
 		}

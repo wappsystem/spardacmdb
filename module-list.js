@@ -2,7 +2,7 @@
     var modules={
         "panel-main-spardac":    	        {url:"$H/m/panel-main.html",router:1},
         "panel-child-spardac":              {url:"$H/m/panel-child.html"},
-        "panel-library-spardac":    			{url:"$H/m/panel-library.html",router:1},
+        "panel-library-spardac":    		{url:"$H/m/panel-library.html",router:1},
         
         "participant-data":   		        {url:"$H/m/participant/participant-data.html",Table:"spardac-participant",form_module:"participant-form",router:1,
                                                 child_panel:"panel-child-spardac",
@@ -21,6 +21,12 @@
 
         "randomisation-table-data-spardac":		{url:"$H/m/library/randomisation-table-data.html",Table:"randomisation-table-spardac",form_module:"randomisation-table-form-spardac"},
         "randomisation-table-form-spardac":		{url:"$H/m/library/randomisation-table-form.html",Table:"randomisation-table-spardac"},
+
+        "panel-recruitment-spardac":        {url:"$H/m/panel-recruitment.html",router:1},
+        "recruitment-screened-chart-spardac":       {url:"$H/m/recruitment/screened-chart.html", Table:"recruitment-setup-spardac", Table2:"spardac-participant"},
+        "recruitment-enrolled-chart-spardac":       {url:"$H/m/recruitment/enrolled-chart.html", Table:"recruitment-setup-spardac", Table2:"spardac-participant"},
+        "recruitment-setup-data":           {url:"$H/m/recruitment/recruitment-setup-data.html", Table:"recruitment-setup-spardac",form_module:"recruitment-setup-form",task_name:"Recruitment Setup"},
+        "recruitment-setup-form":           {url:"$H/m/recruitment/recruitment-setup-form.html",Table:"recruitment-setup-spardac",task_name:"Recruitment Setup"},
 
         "dynamic-text-form-data-spardac":		{url:"$H/m/spardac/dynamic-text-form-data.html",Table:"dynamic-text-form-spardac",form_module:"dynamic-text-form-form-spardac",task_name:"Screening - Dynamically generated text inputs from label names"},
         "dynamic-text-form-form-spardac":		{url:"$H/m/spardac/dynamic-text-form-form.html",Table:"dynamic-text-form-spardac",task_name:"Screening - Dynamically generated text inputs from label names"},
