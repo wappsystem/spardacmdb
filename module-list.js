@@ -3,6 +3,7 @@
         "panel-main-spardac":    	        {url:"$H/m/panel-main.html",router:1},
         "panel-child-spardac":              {url:"$H/m/panel-child.html"},
         "panel-library-spardac":    		{url:"$H/m/panel-library.html",router:1},
+        "panel-export-all-spardac": {url:"$H/m/panel-export.html",router:1},
         
         "participant-data":   		        {url:"$H/m/participant/participant-data.html",Table:"spardac-participant",form_module:"participant-form",router:1,
                                                 child_panel:"panel-child-spardac",
