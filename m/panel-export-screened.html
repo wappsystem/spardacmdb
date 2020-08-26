@@ -2,18 +2,19 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
         	<form class="form-inline">
-        		<button type=button id=count__ID class='btn btn-secondary'>Export All</button> <a class="small font-italic text-muted mt-1"><br>Exports all data into one cvs file</a>
+        		<button type=button id=count__ID class='btn btn-secondary'>Export All</button> <a class="small font-italic text-muted mt-1"><br>Exports all data based on the setup below into a combind cvs file</a>
         	</form>
         	<span id=elapsed__ID style='float:right'></span>
 		</div>
         <section id=panel__ID>
+			<h3>Screened</h3>
+			<span>Select the fields to export by clicking on each form links.</span><br>
         	<div class='nav__ID'>
-        		<span>Participants</span>
         		<ul>
 					<li title="Manage participant - Add new. Data entry for single participant. Setup questionnaires."><a href=?/participant-data>Participants</a></li>
 					<p id=participant-data__ID class="small font-italic text-muted mt-1">Latest entry shown</p>
 				</ul>
-        	VmInclude:__CURRENT_PATH__/panel-tasks-export.html
+        	VmInclude:__CURRENT_PATH__/panel-tasks-export-screened.html
         </section>
 	</div>
 	VmInclude:__COMPONENT__/m/model.01.html
@@ -26,9 +27,9 @@
 			var bi_txt=[];
 			//--------------------------------------------------------
 			$vm.module_list["__MODULE__"].show=function(){
-                document.title="Dashboard | "+$vm.default_title;
-				$("meta[name='description']").attr("content","Dashboard");
-				console.log($vm.module_list['export-form-spardac'].Table)
+                document.title="Export Setup | "+$vm.default_title;
+				$("meta[name='description']").attr("content","Export Setup");
+				//console.log($vm.module_list['export-form-spardac'].Table)
 				var table=$vm.module_list['export-form-spardac'].Table;
 				$vm.request({cmd:'find',table:table},function(res){
 					if(res.status=='np'){
@@ -41,6 +42,7 @@
 							if(href!=undefined){
 								href=href.replace('?\/','');
 								href=href.replace(/\//g,'_');
+
 								$('#'+href+'__ID').html('No setup found. Will export all fields')
 								var tbname=$vm.module_list[href].Table;
 								for (var i=0;i<export_list.length;i++){
@@ -55,7 +57,6 @@
 						})
 					}		
 				});
-
 			}
 			//--------------------------------------------------------
             $('#panel__ID a').on('click',function(e){
@@ -91,6 +92,9 @@
         	set_a_text();
         	//---------------------------------------------
         	$('#count__ID').on('click',function(){
+				all_data=[];
+				NN=0;
+				bi_txt=[];
         		clear_counting();
 				var N=0;
         		$('#panel__ID a').each(function(){
@@ -156,12 +160,21 @@
 				var participant_rec = data[0];
 				var participant_labels=[];
 				//try to see if participant_export is defined in Module list
-				if(bi_txt[0].participant_export!=undefined) participant_labels=(bi_txt[0].participant_export).split(',');
-				//otherwise take from last record from participant records
-				else{
-					for (var k in data[0][data[0].length-1]){
-						if(k!=="_Password" && k!=="List" && k!='Randomised_by') participant_labels.push(k)
-					}  
+				for (var i=0;i<export_list.length;i++){
+					//console.log(export_list[i].Data.Table_name+' - '+bi_txt[j].Table)
+					if(export_list[i].Data.Table_name==bi_txt[0].Table){
+						//Labels from setup
+						var show=export_list[i].Data.Export_Fields;
+						show="ID,"+show;
+						participant_labels=show.split(',');
+						break;										
+					}
+					else if(i==export_list.length-1){
+						//Extract labels from last record entered.
+						for (var k in data[0][data[0].length-1]){
+							if(k!=="_Password" && k!=="List") participant_labels.push(k);
+						}
+					}
 				}
 				//console.log("participant: "+JSON.stringify(participant_labels));
 				//Get entry Form labels (record field's name). Take last entered record. 
@@ -170,14 +183,14 @@
 					for (var i=0;i<export_list.length;i++){
 						//console.log(export_list[i].Data.Table_name+' - '+bi_txt[j].Table)
 						if(export_list[i].Data.Table_name==bi_txt[j].Table){
+							//Labels from Setup
 							var show=export_list[i].Data.Export_Fields;
 							export_labels=show.split(',');
 							break;										
 						}
 						if(i==export_list.length-1){
-							for (var k in data[j][data[j].length-1]){
-								//remove some labels
-								//console.log(k)
+						//Extract labels from last record entered.
+						for (var k in data[j][data[j].length-1]){
 								if(k!=="ID" && k!=="_status" && k!=="sysStatus" && k!='Participant') export_labels.push(k)
 							}
 						}
@@ -187,7 +200,7 @@
 					var empty_item={}
 					//console.log(participant_labels.length)
 					for(var i=0;i<participant_labels.length;i++){
-						empty_item[participant_labels[i]]="";
+						empty_participant[participant_labels[i]]="";
 					}
 					//console.log("exp: "+JSON.stringify(empty_participant))
 					for(var i=0;i<export_labels.length;i++){
@@ -209,18 +222,20 @@
 								//Get a new empty object
 								empty_item2=(JSON.parse(JSON.stringify(empty_item)));
 								empty_participant2=(JSON.parse(JSON.stringify(empty_participant)));
-								//console.log(JSON.stringify(empty_participant2))
+								//Fill participants details
 								for( var ll=0;ll<participant_labels.length;ll++){
 									if(participant_rec[ii].hasOwnProperty(participant_labels[ll])){
-										empty_item2[participant_labels[ll]]=participant_rec[ii][participant_labels[ll]];
 										empty_participant2[participant_labels[ll]]=participant_rec[ii][participant_labels[ll]];
 									}
 								}
+								//Fill records from tasks
 								for( var ll=0;ll<export_labels.length;ll++){
 									if(task_rec[kk].hasOwnProperty(export_labels[ll])){
 										empty_item2[export_labels[ll]]=task_rec[kk][export_labels[ll]];
 									}
 								}
+								//console.log("item: "+JSON.stringify(empty_item2))
+								//console.log("part: "+JSON.stringify(empty_participant2))
 								output_data.push(empty_item2);
 								participant_data.push(empty_participant2)
 								break;
@@ -230,7 +245,6 @@
 								empty_item2=(JSON.parse(JSON.stringify(empty_item)));
 								for( var ll=0;ll<participant_labels.length;ll++){
 									if(participant_rec[ii].hasOwnProperty(participant_labels[ll])){
-										empty_item2[participant_labels[ll]]=participant_rec[ii][participant_labels[ll]];
 										empty_participant2[participant_labels[ll]]=participant_rec[ii][participant_labels[ll]];										
 									}
 								}
@@ -243,28 +257,13 @@
 					var tmp=JSON.stringify(output_data).replace(/"off"/g,'"N"').replace(/"on"/g,'"Y"') //.replace(',"":""','');
 					output_data=JSON.parse(tmp);
 					//Add a number "X_" for all labels apart from particpant and first records, so we don't have duplicated lables
-					if(j>1){
+					if(j>0){
 						for (var i in output_data){
 							for (var o in output_data[i]){
 								var o_val=output_data[i][o];
 								delete output_data[i][o];
-								//if(o==''){
-								//	output_data[i][o]='No Export'
-								//}
-								//else {
-								o=(j-1).toString()+'_'+o;
+								o=j.toString()+'_'+o;
 								output_data[i][o]=o_val
-								//}
-								//console.log(o+":"+output_data[i][o])
-							}  
-						}
-						for (var i in participant_data){
-							for (var o in participant_data[i]){
-								var o_val=participant_data[i][o];
-								delete participant_data[i][o];
-								o=(j-1).toString()+'_'+o;
-								participant_data[i][o]=o_val
-								//console.log(o+":"+output_data[i][o])
 							}  
 						}
 					}
@@ -279,42 +278,21 @@
 			}
 			//--------------------------------------------------------
 			var combine_output=function(output,participant){
-				var rec="";
-				var jrec=[];
-				var all_rec=[]
-				for(var i=0;i<output.length;i++){
-					rec=JSON.stringify(output[i])
-					//Remove repeat of participants data from all tasks but the first
-					if(i>0){
-						for(var k=0;k<participant.length;k++){
-							var part_participant=participant[k]
-							for(var j=0;j<participant[k].length;j++){
-								rec_j=JSON.stringify(participant[k][j])
-								rec_j=rec_j.replace(/{/g,"").replace(/}/g,",")
-								rec=rec.replace(rec_j,"")
-							}
-						}
-					}
-					jrec=JSON.parse(rec)
-					all_rec.push(jrec)
-				}
-				//console.log("-------------------------------------------------------");
-				//console.log(JSON.stringify(all_rec));
 				var single="";
 				var all="";
 				var final=[];
 				//Combine all reords for each participant
 				for(var j=0;j<participant[0].length;j++){
-					all="";
-					for(var i=0;i<all_rec.length;i++){
-						single=JSON.stringify(all_rec[i][j])
+					all=JSON.stringify(participant[0][j]);
+					for(var i=0;i<output.length;i++){
+						single=JSON.stringify(output[i][j])
 						all+=single;
 					}
 					all=all.replace(/}{/g,',')
 					final.push(JSON.parse(all))
 				}
 				//console.log(JSON.stringify(final));
-				$vm.download_csv("Spardac Full Export.csv",final);
+				$vm.download_csv("Spardac Screened Export.csv",final);
 			}		
 		}
     </script>

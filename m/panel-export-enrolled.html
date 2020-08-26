@@ -2,18 +2,20 @@
     <div>
         <div id=toolbar__ID class="navbar navbar-default">
         	<form class="form-inline">
-        		<button type=button id=count__ID class='btn btn-secondary'>Export All</button> <a class="small font-italic text-muted mt-1"><br>Exports all data into one cvs file</a>
+        		<button type=button id=count__ID class='btn btn-secondary'>Export All</button> <a class="small font-italic text-muted mt-1"><br>Exports all data based on the setup below into a combind cvs file</a>
         	</form>
         	<span id=elapsed__ID style='float:right'></span>
 		</div>
         <section id=panel__ID>
-        	<div class='nav__ID'>
+			<h3>Enrolled</h3>
+			<span>Select the fields to export by clicking on each form links.</span><br>
+			<div class='nav__ID'>
         		<span>Participants</span>
         		<ul>
 					<li title="Manage participant - Add new. Data entry for single participant. Setup questionnaires."><a href=?/participant-data>Participants</a></li>
 					<p id=participant-data__ID class="small font-italic text-muted mt-1">Latest entry shown</p>
 				</ul>
-        	VmInclude:__CURRENT_PATH__/panel-tasks-export.html
+        	VmInclude:__CURRENT_PATH__/panel-tasks-export-enrolled.html
         </section>
 	</div>
 	VmInclude:__COMPONENT__/m/model.01.html
@@ -162,33 +164,34 @@
 				for (var i=0;i<export_list.length;i++){
 					//console.log(export_list[i].Data.Table_name+' - '+bi_txt[j].Table)
 					if(export_list[i].Data.Table_name==bi_txt[0].Table){
+						//Labels from setup
 						var show=export_list[i].Data.Export_Fields;
 						show="ID,"+show;
 						participant_labels=show.split(',');
 						break;										
 					}
 					else if(i==export_list.length-1){
-						//participant_labels.push("UID");
+						//Extract labels from last record entered.
 						for (var k in data[0][data[0].length-1]){
 							if(k!=="_Password" && k!=="List") participant_labels.push(k);
 						}
 					}
 				}
-				console.log("participant: "+JSON.stringify(participant_labels));
+				//console.log("participant: "+JSON.stringify(participant_labels));
 				//Get entry Form labels (record field's name). Take last entered record. 
 				for(var j=1;j<bi_txt.length;j++){
 					var export_labels=[];
 					for (var i=0;i<export_list.length;i++){
 						//console.log(export_list[i].Data.Table_name+' - '+bi_txt[j].Table)
 						if(export_list[i].Data.Table_name==bi_txt[j].Table){
+							//Labels from Setup
 							var show=export_list[i].Data.Export_Fields;
 							export_labels=show.split(',');
 							break;										
 						}
 						if(i==export_list.length-1){
-							for (var k in data[j][data[j].length-1]){
-								//remove some labels
-								//console.log(k)
+						//Extract labels from last record entered.
+						for (var k in data[j][data[j].length-1]){
 								if(k!=="ID" && k!=="_status" && k!=="sysStatus" && k!='Participant') export_labels.push(k)
 							}
 						}
@@ -279,18 +282,20 @@
 				var single="";
 				var all="";
 				var final=[];
-				//Combine all reords for each participant
+				//Combine all reords for ENROLLED participant
 				for(var j=0;j<participant[0].length;j++){
-					all=JSON.stringify(participant[0][j]);
-					for(var i=0;i<output.length;i++){
-						single=JSON.stringify(output[i][j])
-						all+=single;
+					if(participant[0][j].Randomisation_Number!=''){
+						all=JSON.stringify(participant[0][j]);
+						for(var i=0;i<output.length;i++){
+							single=JSON.stringify(output[i][j])
+							all+=single;
+						}
+						all=all.replace(/}{/g,',')
+						final.push(JSON.parse(all))
 					}
-					all=all.replace(/}{/g,',')
-					final.push(JSON.parse(all))
 				}
 				//console.log(JSON.stringify(final));
-				$vm.download_csv("Spardac Full Export.csv",final);
+				$vm.download_csv("Spardac Enrolled Export.csv",final);
 			}		
 		}
     </script>

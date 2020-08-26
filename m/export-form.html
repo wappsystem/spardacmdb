@@ -23,6 +23,7 @@
 								</div>
 							</div>
 							<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+							<button type="submit" id="delete__ID" class="btn btn-primary btn-lg">Delete</button>
 						</div>
 					</form>
 				</div>
@@ -38,6 +39,7 @@
 			var export_res;
 			m.load = function () {
 				load();
+				$('#delete__ID').hide();
 				m.Table=$vm.module_list['export-form-spardac'].Table;
 				if(m.input!=undefined){
 					$('#title__ID').html(m.input.name)
@@ -55,6 +57,7 @@
 					}
 					if(res.result.length==1){
 						m.input.record=res.result[0];
+						$('#delete__ID').show();
 						//console.log(JSON.stringify(m.input.record))
 						//console.log(JSON.stringify(res.result[0].Data))
 						$('#F__ID textarea[name=Export_Fields').val(res.result[0].Data.Export_Fields);
