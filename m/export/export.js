@@ -12,7 +12,7 @@ $vm.module_list["__MODULE__"].show=function(){
 	$("meta[name='description']").attr("content","Export Setup");
 	//Get fields to export from each record
 	//console.log("Start")
-	var table=$vm.module_list['export-form-cleverlights'].Table;
+	var table=$vm.module_list['export-form'].Table;
 	$vm.request({cmd:'find',table:table},function(res){
 		if(res.status=='np'){
 			$vm.alert("No access permissions")
@@ -49,7 +49,7 @@ $('#panel__ID a').on('click',function(e){
 	if(href!=undefined){
 		href=href.replace('?\/','');
 		href=href.replace(/\//g,'_');
-		$vm.load_module('export-form-cleverlights','',{name:name,link:href,goback:1})
+		$vm.load_module('export-form','',{name:name,link:href,goback:1})
 	}
 })
 //--------------------------------------------------------			

@@ -586,9 +586,9 @@
          //-------------------------------------
          var before_submit=m.before_submit;
             m.before_submit=function(data,index){
-              data.DASS_D=((parseInt(data.DASS_3)+parseInt(data.DASS_5)+parseInt(data.DASS_10)+parseInt(data.DASS_13)+parseInt(data.DASS_16)+parseInt(data.DASS_17)+parseInt(data.DASS_21))*2).toString();
-              data.DASS_A=((parseInt(data.DASS_2)+parseInt(data.DASS_4)+parseInt(data.DASS_7)+parseInt(data.DASS_9)+parseInt(data.DASS_15)+parseInt(data.DASS_19)+parseInt(data.DASS_20))*2).toString();
-              data.DASS_S=((parseInt(data.DASS_1)+parseInt(data.DASS_6)+parseInt(data.DASS_8)+parseInt(data.DASS_11)+parseInt(data.DASS_12)+parseInt(data.DASS_14)+parseInt(data.DASS_18))*2).toString();
+              data.DASS_D=((parseInt(data.DASS_3)+parseInt(data.DASS_5)+parseInt(data.DASS_10)+parseInt(data.DASS_13)+parseInt(data.DASS_16)+parseInt(data.DASS_17)+parseInt(data.DASS_21))).toString();
+              data.DASS_A=((parseInt(data.DASS_2)+parseInt(data.DASS_4)+parseInt(data.DASS_7)+parseInt(data.DASS_9)+parseInt(data.DASS_15)+parseInt(data.DASS_19)+parseInt(data.DASS_20))).toString();
+              data.DASS_S=((parseInt(data.DASS_1)+parseInt(data.DASS_6)+parseInt(data.DASS_8)+parseInt(data.DASS_11)+parseInt(data.DASS_12)+parseInt(data.DASS_14)+parseInt(data.DASS_18))).toString();
               return before_submit(data,index);
           }
           //-------------------------------------
