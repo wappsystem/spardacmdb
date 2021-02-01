@@ -1,5 +1,5 @@
 <div id=thirdparty_container__ID>
-	<div style="margin : auto; width : 640px; font-size : large; line-height: 2">
+	<div style="margin : auto; width : 1100px; font-size : x-large; line-height: 2">
 		<div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
 				<div class="row">
 					<div class="col-12">
@@ -27,7 +27,7 @@
 			<button class='btn btn-primary btn-lg stop-button' style="float:right; margin-right:100px;">Stop</button>
 			<button class='btn btn-primary btn-lg start-button' style="float:right; margin-right:100px;">Start</button>
 		</div>
-		<canvas id=main_canvas__ID width=640 height=360 style="margin : auto; display : block;"></canvas>
+		<canvas id=main_canvas__ID width=1100 height=600 style="margin : auto; display : block;"></canvas>
 		<div id=instructions_1__ID>
 			<div><strong><u>Capital Letters Condition Trial 1</u></strong></div>
 			<div>This task is called a cancellation task.</div>
@@ -333,16 +333,16 @@
 				wrong = 0;
 				var checkCase = testConditions[current].includes("c");
 				var checkSpace = testConditions[current].includes("s");
-				var ox = 30;
-				var oy = 25;
-				var cw = 15;
-				var ch = 15;
+				var ox = 50;
+				var oy = 50;
+				var cw = 25;
+				var ch = 20;
 				var hcw = cw / 3;
 				var hch = ch / 3;
 				ctx.fillStyle = 'black';
 				ctx.textAlign = 'center';
 				ctx.textBaseline = 'middle';
-				ctx.font = '12px Lucida Console';
+				ctx.font = '14px Lucida Console';
 				ctx.lineWidth = 1;
 				ctx.strokeStyle = 'rgb(255,0,0)';
 				var ltrs = letters[current];
