@@ -44,6 +44,7 @@
         "one-many-special-1-form-spardac":	    {url:"$H/m/spardac/one-many-special-1-form.html",Table:"one-many-special-1-spardac",task_name:"Screening - One of many choice - Special type 1"},
         "one-many-special-2-data-spardac":	    {url:"$H/m/spardac/one-many-special-2-data.html",Table:"one-many-special-2-spardac",form_module:"one-many-special-2-form-spardac",task_name:"Screening - One of many choice - Special type 2"},
         "one-many-special-2-form-spardac":	    {url:"$H/m/spardac/one-many-special-2-form.html",Table:"one-many-special-2-spardac",task_name:"Screening - One of many choice - Special type 2"},
+        "consent-form-spardac":	    {url:"$H/m/spardac/consent-form.html",Table:"consent-spardac",task_name:"Digital Consent Form"},
 
         "textarea-data-spardac":                {url:"$H/m/spardac/textarea-data.html",Table:"textarea-spardac",form_module:"textarea-form-spardac",task_name:"Baseline - Multiple lines text inputs"},
         "textarea-form-spardac":                {url:"$H/m/spardac/textarea-form.html",Table:"textarea-spardac",task_name:"Baseline - Multiple lines text inputs"},
@@ -209,6 +210,8 @@
         "psggrr-form-spardac":                    {url:"$H/m/library/psggrr-form.html",Table:"psggrr-spardac",task_name:"Grael Research PSG Report"},
         "psg300-data-spardac":                    {url:"$H/m/library/psg300-data.html",Table:"psg300-spardac",form_module:"psg300-form-spardac",task_name:"PSG 300 Report"},
         "psg300-form-spardac":                    {url:"$H/m/library/psg300-form.html",Table:"psg300-spardac",task_name:"PSG 300 Report"},
+        "clintrial-data-spardac":                    {url:"$H/m/spardac/clintrial-data.html",Table:"clintrial-spardac",form_module:"clintrial-form-spardac",task_name:"eCRF with Monitor function"},
+        "clintrial-form-spardac":                    {url:"$H/m/spardac/clintrial-form.html",Table:"clintrial-spardac",task_name:"eCRF with Monitor function"},
     }
     for(p in modules){
         $vm.module_list[p]=modules[p];

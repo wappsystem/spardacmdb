@@ -1,0 +1,81 @@
+<section>
+    VmInclude:__CURRENT_PATH__/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/shared-data.js
+        //-------------------------------------
+        m.load=function(){
+            $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+        }
+        //-------------------------------------
+        var fields="weight,m_weight,comment_weight,height,m_height,comment_height";
+        m.fields="_Form,_Lock,_Notes,_Mod/Del,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        //-------------------------------------
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+                case 'm_weight':
+                    if(records[I].Data['m_weight']==''|| records[I].Data['m_weight']==undefined) td.html("<span style='color:grey'><i class='fas fa-circle'></i></span>")
+                    if(records[I].Data['m_weight']=='OK') td.html("<span style='color:lime'><i class='fas fa-circle'></i></span>")
+                    if(records[I].Data['m_weight']=='NOT') td.html("<span style='color:red'><i class='fas fa-circle'></i></span>")
+                    break;
+                case 'm_height':
+                    if(records[I].Data['m_height']=='' || records[I].Data['m_height']==undefined) td.html("<span style='color:grey'><i class='fas fa-circle'></i></span>")
+                    if(records[I].Data['m_height']=='OK') td.html("<span style='color:lime'><i class='fas fa-circle'></i></span>")
+                    if(records[I].Data['m_height']=='NOT') td.html("<span style='color:red'><i class='fas fa-circle'></i></span>")
+                    break;
+/*                case '_mon_status':
+                    if((records[I].Data['m_weight']=='' || records[I].Data['m_weight']==undefined) && (records[I].Data['m_height']==''  || records[I].Data['m_height']==undefined)) td.html("<span style='color:grey'><i class='fas fa-circle'></i></span>")
+                    else if(records[I].Data['m_weight']=='OK' && records[I].Data['m_height']=='OK' ) {
+                        td.html("<span style='color:lime'><i class='fas fa-circle'></i></span>");
+                    }
+                    else{
+                        td.html("<span style='color:red'><i class='fas fa-circle'></i></span>");
+                    }
+                    td.css('text-align','center');
+                    break;
+*/                case '_Status':
+                    td.html("<span style='color:"+records[I].Data['sysStatus']+"'><i class='fas fa-circle'></i></span>");
+                    td.css('text-align','center');
+                    break;
+                case '_Participant_ID':
+                    td.html(records[I].Data.Participant_uid);
+                    break;
+                case '_Notes':
+                    //default: create a hyperlink to load note module with task name and task UID
+                    //if there is a note for this record, the td will be overwritten lately
+                    td.html("<u style='cursor:pointer'>Notes</u>");
+                    td.find('u').on('click',function(){
+                        $vm.load_module(notes,'',{task_name:m.task_name,task_uid:records[I].UID,participant_uid:records[I].Data.Participant_uid})
+                    })
+                    break;
+                case '_Lock':
+                    var lk=0; if(records[I].LK==1) lk=1;
+                    var       h="<u i="+I+" style='cursor:pointer;color:green;'><i class='fas fa-lock-open'></i></u>";
+                    if(lk==1) h="<u i="+I+" style='cursor:pointer;color:red;'><i class='fas fa-lock'></i></u>";
+                    td.html(h);
+                    td.css('text-align','center');
+                    td.find('u').on('click',function(){
+                        var _i=$(this).attr('i');
+                        process_lock(_i);
+                    })
+                    break;
+                case '_Mod/Del':
+                    //default: create a hyperlink to load note module with task name and task UID
+                    //if there is a note for this record, the td will be overwritten lately
+                    td.html("<u style='cursor:pointer'>0</u>");
+                    td.css('text-align','center');
+                    td.find('u').on('click',function(){
+                        $vm.alert("Will show all changes on this record")
+                    })
+                    break;
+            }
+        }
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

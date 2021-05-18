@@ -1,0 +1,184 @@
+<div id=D__ID>
+    <!--third html start -->
+    <div class="container mt-95 mb-3">
+        <div class="row">
+            <!-- form container start -->
+            <div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- form start -->
+                        <form id="F__ID">
+                            <h3 id=title__ID></h3>
+                            <!-- participant part for all tsak forms -------------------->
+                            <div id="participant_div__ID">
+                                <div class="form-group">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Participant</span>
+                                            <input type=text name="Participant" class=form-control id=Participant__ID
+                                                data-id="Participant" />
+                                        </label><br>
+                                        <label><span class="">Participant ID</span>
+                                            <input type=text name="Participant_uid" class=form-control readonly />
+                                        </label>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <!-- form group -->
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="subquestions">
+                                        <label><span class="">Weight (kg) (Range 50..100).</span>&nbsp;<span style='color:red' id=warning_weight__ID class=""></span>
+                                            <input class="form-control" type="number" name="weight" id=weight__ID placeholder="Weight (kg)">
+                                        </label><br>
+                                        <fieldset class="subquestions">
+                                            <label><span>Monitor</span></label>
+                                            <label class="radiobuttons pt-2">
+                                                <input type="radio" name="m_weight" value="OK">
+                                                <span id=OK_weight__ID class="checkmark no-dot" style="background-color:grey">&#10004;</span>
+                                            </label>
+                                            <label class="radiobuttons pt-2">
+											    <input type="radio" name="m_weight" value="NOT">
+											    <span  id=NOT_OK_weight__ID class="checkmark no-dot" style="background-color:grey">&#10006;</span>
+                                            </label>
+                                            <label><span class=""></span>
+                                                <input class="form-control" type="text"  name="comment_weight" placeholder="comments">
+                                            </label><br>
+                                        </fieldset>
+                                    </fieldset>
+                                </div>
+							</div>
+                            <div class="form-group">
+                                <div class="questiongroup ">
+                                    <fieldset class="">
+                                        <label><span class="">Height (cm) (Range 160..190)</span>&nbsp;<span style='color:red' id=warning_height__ID class=""></span>
+                                            <input class="form-control" type="number" name="height" id=height__ID placeholder="Height (cm)">
+                                        </label><br>
+                                        <fieldset class="subquestions">
+                                            <label><span>Monitor</span></label>
+                                            <label class="radiobuttons pt-2">
+                                                <input type="radio" name="m_height" value="OK">
+                                                <span id=OK_height__ID class="checkmark no-dot" style="background-color:grey">&#10004;</span>
+                                            </label>
+                                            <label class="radiobuttons pt-2">
+											    <input type="radio" name="m_height" value="NOT">
+											    <span  id=NOT_OK_height__ID class="checkmark no-dot" style="background-color:grey">&#10006;</span>
+                                            </label>
+                                            <label><span class=""></span>
+                                                <input class="form-control" type="text"  name="comment_height" placeholder="comments">
+                                            </label><br>
+                                        </fieldset>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function F__ID(){
+            //-------------------------------------
+            VmInclude:'__COMPONENT__/f/form.01.js'
+            VmInclude:__CURRENT_PATH__/shared-form.js
+            //-------------------------------------
+			var load2=m.load;
+			m.load=function(){
+                load2();
+                $('#title__ID').text($vm.module_list[$vm.vm['__ID'].name].task_name);
+                console.log(($("#D__ID input[name=m_weight]:checked").val()))
+                if($("#D__ID input[name=m_weight]:checked").val()=="" || $("#D__ID input[name=m_weight]:checked").val()==undefined){
+                    $("#OK_weight__ID").css('background-color','grey')
+                }
+                if($("#D__ID input[name=m_weight]:checked").val()=="OK"){
+                    $("#NOT_OK_weight__ID").css('background-color','grey')
+                    $("#OK_weight__ID").css('background-color','lime')
+                }
+                if($("#D__ID input[name=m_weight]:checked").val()=="NOT"){
+                    $("#NOT_OK_weight__ID").css('background-color','red')
+                    $("#OK_weight__ID").css('background-color','grey')
+                }
+                if($("#D__ID input[name=m_height]:checked").val()=="" || $("#D__ID input[name=m_height]:checked").val()==undefined){
+                    $("#NOT_OK_height__ID").css('background-color','grey')
+                }
+                if($("#D__ID input[name=m_height]:checked").val()=="OK"){
+                    $("#NOT_OK_height__ID").css('background-color','grey')
+                    $("#OK_height__ID").css('background-color','lime')
+                }
+                if($("#D__ID input[name=m_height]:checked").val()=="NOT"){
+                    $("#NOT_OK_height__ID").css('background-color','red')
+                    $("#OK_height__ID").css('background-color','grey')
+                }
+                if ($('#weight__ID').val() !== '' || $('#weight__ID').val() !== undefined) {
+                    if(parseFloat($('#weight__ID').val())>100  || parseFloat($('#weight__ID').val())<50 ) {
+                        $('#warning_weight__ID').text('Outside specified range. (50..100)')
+                    }
+                    else {
+                        $('#warning_weight__ID').text('')
+                    }
+                }
+                if ($('#height__ID').val() !== '' || $('#height__ID').val() !== undefined) {
+                    if(parseFloat($('#height__ID').val())>190  || parseFloat($('#height__ID').val())<160 ) {
+                        $('#warning_height__ID').text('Outside specified range. (160..190)')
+                    }
+                    else {
+                        $('#warning_height__ID').text('')
+                    }
+                }
+            }
+            //-------------------------------------
+            $("#D__ID input[name=m_weight]").on('click', function () {
+                if($("#D__ID input[name=m_weight]:checked").val()=="OK"){
+                    $("#NOT_OK_weight__ID").css('background-color','grey')
+                    $("#OK_weight__ID").css('background-color','lime')
+                }
+                if($("#D__ID input[name=m_weight]:checked").val()=="NOT"){
+                    $("#NOT_OK_weight__ID").css('background-color','red')
+                    $("#OK_weight__ID").css('background-color','grey')
+                }
+            })
+            //-------------------------------------
+            $("#D__ID input[name=m_height]").on('click', function () {
+                if($("#D__ID input[name=m_height]:checked").val()=="OK"){
+                    $("#NOT_OK_height__ID").css('background-color','grey')
+                    $("#OK_height__ID").css('background-color','lime')
+                }
+                if($("#D__ID input[name=m_height]:checked").val()=="NOT"){
+                    $("#NOT_OK_height__ID").css('background-color','red')
+                    $("#OK_height__ID").css('background-color','grey')
+                }
+            })
+            //-------------------------------------
+            $('#weight__ID').on('change', function () {
+                if ($('#weight__ID').val() !== '' || $('#weight__ID').val() !== undefined) {
+                    if(parseFloat($('#weight__ID').val())>100  || parseFloat($('#weight__ID').val())<50 ) {
+                        $('#warning_weight__ID').text('Outside specified range.')
+                    }
+                    else {
+                        $('#warning_weight__ID').text('')
+                    }
+                }
+            })
+            $('#height__ID').on('change', function () {
+                if ($('#height__ID').val() !== '' || $('#height__ID').val() !== undefined) {
+                    if(parseFloat($('#height__ID').val())>190  || parseFloat($('#height__ID').val())<160 ) {
+                        $('#warning_height__ID').text('Outside specified range.')
+                    }
+                    else {
+                        $('#warning_height__ID').text('')
+                    }
+                }
+            })
+            //-------------------------------------
+        }
+    </script>
+    <style>
+        #D__ID .mt-95 {
+        max-width:600px;
+        }
+        VmInclude:__CURRENT_PATH__/../../library/wappsystem-form.css
+    </style>
+</div>

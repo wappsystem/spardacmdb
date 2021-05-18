@@ -890,7 +890,7 @@
                 var endInputMins = parseInt(endTimeArray[1]);
                 var startMin = startInputHrs*60 + startInputMins;
                 var endMin = endInputHrs*60 + endInputMins;
-                console.log(startMin +' - '+endMin );
+                console.log("bed time: "+startMin +' - '+endMin );
                 var result;
                 if (endMin < startMin) {
                     var minutesPerDay = 24*60; 
@@ -900,7 +900,8 @@
                 else {
                     result = endMin - startMin;
                 }
-                console.log(result);
+
+                console.log("time in bed"+result);
                 v4=parseFloat(v4)*60*100;
                 var vpsqi4=v4/result;
                 console.log(v4+' - '+result+' - '+vpsqi4);

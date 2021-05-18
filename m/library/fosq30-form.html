@@ -913,10 +913,11 @@
             if (parseFloat(data.FOSQ_7)>0) Vigilance+=1;
             if (parseFloat(data.FOSQ_17)>0) Vigilance+=1;
             if (parseFloat(data.FOSQ_18)>0) Vigilance+=1;
+            if (parseFloat(data.FOSQ_19)>0) Vigilance+=1;
             if (parseFloat(data.FOSQ_20)>0) Vigilance+=1;
             if (parseFloat(data.FOSQ_21)>0) Vigilance+=1;
             if (Vigilance==0) data.FOSQ_Vigilance="0";
-            else data.FOSQ_Vigilance=((parseFloat(data.FOSQ_6)+parseFloat(data.FOSQ_7)+parseFloat(data.FOSQ_17)+parseFloat(data.FOSQ_18)+parseFloat(data.FOSQ_20)+parseFloat(data.FOSQ_21))/Vigilance).toFixed(1);
+            else data.FOSQ_Vigilance=((parseFloat(data.FOSQ_6)+parseFloat(data.FOSQ_7)+parseFloat(data.FOSQ_17)+parseFloat(data.FOSQ_18)+parseFloat(data.FOSQ_19)+parseFloat(data.FOSQ_20)+parseFloat(data.FOSQ_21))/Vigilance).toFixed(1);
 
             var Intimacy=0;
             if (parseFloat(data.FOSQ_27)>0) Intimacy+=1;
