@@ -15,10 +15,20 @@
                                                 participant_id:{field1:"Subject_ID",field2:"Subject_Initials"},
                                                 participant_export:"ID,Subject_ID,Screening_Number,Randomisation_Number,Subject_Initials,Gender,DOB"
                                             },
-        "participant-form":   		        {url:"$H/m/participant/participant-form.html",Table:"spardac-participant"},
+        "participant-randomised-data":   		        {url:"$H/m/participant/participant-randomised-data.html",Table:"spardac-participant",form_module:"participant-form",router:1,
+                                            child_panel:"panel-child-spardac",
+                                            questionnaire_setup:"online-questionnaire-setup-spardac",
+                                            online_questionnaire:"online-questionnaire-app-spardac",
+                                            participant_id:{field1:"Subject_ID",field2:"Subject_Initials"},
+                                            participant_export:"ID,Subject_ID,Screening_Number,Randomisation_Number,Subject_Initials,Gender,DOB"
+                                        },
+    "participant-form":   		        {url:"$H/m/participant/participant-form.html",Table:"spardac-participant"},
 
         "online-questionnaire-setup-spardac": {url:"$H/m/oq-setup.html",Table:"spardac-participant"},
         "online-questionnaire-app-spardac":   {url:"$H/oq.html"},
+
+        "progress-reshaped-data":   		{url:"$H/m/participant/progress-data.html",Table:"reshaped-participant",Table2:"progress-reshaped",form_module:"progress-reshaped-form",router:1},
+        "progress-reshaped-form":              {url:"$H/m/participant/progress-form.html",Table:"reshaped-participant",Table2:"progress-reshaped",task_name:"Progress"},
 
         "notes-data":  	                    {url:"$H/m/library/notes-data.html",Table:"spardac-notes",form_module:"notes-form",router:1},
         "notes-form":  	                    {url:"$H/m/library/notes-form.html",Table:"spardac-notes"},
