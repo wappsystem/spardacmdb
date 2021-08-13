@@ -1,0 +1,49 @@
+<section>
+    VmInclude:__CURRENT_PATH__/../../library/grid.v1h.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        VmInclude:__CURRENT_PATH__/../../library/shared-data.js
+        //-------------------------------------
+        $('#title__ID').text('N-Back 2 Block')
+        var block=$vm.module_list['__MODULE__'].form_block_module
+        var spec_table=$vm.module_list[block].Table
+        //-------------------------------------
+		var fields="NBACK,NGTA,NGRT,GMRT,NTCR,NTIC,NMIS,NMRT,MRTCM,MRTCN,SDCR,SDCM,SDCN,MdRTCR,MdRTCM,MnRTCR,MxRTCR,MF10CR,MS10CR,SDF10CR,SDS10CR,NTCM,NTCN,NTFM,NTFN,NTWR,NNO,NRT,NAC";
+        m.fields="_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        var repeats=1;
+        m.load=function(){
+            $('#block__ID').show();
+            var rep;
+            $vm.request({cmd:'find',table:spec_table,limit:1},function(res){
+                    if(res.result.length>0){
+                        repeats=res.result[0].Data.number_repeats;
+                        fields=fields+","
+                        var single_fields="";
+                        for (i=1;i<=parseInt(repeats);i++){
+                            single_fields+=fields.replaceAll(',',i.toString()+',')
+                        }
+                        fields=single_fields.replace(/,$/,"");
+                        m.fields="_Status,_Notes,_Participant_ID,Participant,"+fields+",Submit_date,Submitted_by,_Delete";
+                    }
+                    else{
+                        $vm.alert("Block specs not defined")
+                    }
+                })
+
+            
+
+        }
+        $('#block__ID').on('click',function(){
+            var block=$vm.module_list['__MODULE__'].form_block_module;
+            var prefix=""; if(m.prefix!=undefined) prefix=m.prefix;
+            $vm.load_module(prefix+block,'',{goback:1});
+        });
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

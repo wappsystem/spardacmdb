@@ -1,0 +1,68 @@
+<div id=thirdparty_container__ID>
+	<div style="margin : auto; width : 1100px; font-size : larger; color:white;">
+		<div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+			<div class="row">
+				<div class="col-12">
+				<!-- form start -->
+				<form id="F__ID">
+					<!-- participant name and study id -->
+					<div id="participant_div__ID">
+						<div class="form-group">
+							<fieldset class="subquestions">
+								<label ><span class="">Participant</span>
+									<input type=text name="Participant" class=form-control id=Participant__ID data-id="Participant"/>
+								</label><br>
+								<label ><span class="">Participant ID</span>
+									<input type=text name="Participant_uid" class=form-control readonly />
+								</label>
+							</fieldset>
+						</div>
+					</div>
+				</form>
+				</div>
+			</div>
+		</div>
+		<canvas id=main_canvas__ID width=800 height=800 style="margin : auto; display : block;"></canvas>
+		<div style="height : 50px; margin-top : 80px; float:right;">
+			<button class='btn btn-primary btn-lg start-button' style="float:right; margin-right:100px;">Start</button>
+		</div>
+		<div id=instructions__ID style="max-width:800px;" >
+		</div>
+        <div id=counter_div__ID class="center-screen" style="display: none;margin-top:180px">
+            <span id=counter__ID></span>
+        </div>
+        <div id=dot_div__ID class="center-screen" style="display: none;margin-top:220px">
+            <span style="color: red;">&bull;</span>
+        </div>    
+	</div>
+</div>
+<script>
+	function F__ID(){
+		//-------------------------------------
+		VmInclude:__COMPONENT__/f/form.01.js
+		VmInclude:__CURRENT_PATH__/../../library/shared-form.js
+		//-------------------------------------
+		var nback=2;
+		VmInclude:__CURRENT_PATH__/nback-block.js
+		//-------------------------------------		
+	}
+</script>
+<style>
+	#D__ID{
+		height:100%;
+		overflow:auto;
+		animation: vm_module_fadein 1.0s;
+	}
+	#thirdparty_container__ID{
+		overflow: hidden;
+	}
+    #D__ID .center-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 40vh;
+        font-size:10em
+    }    
+</style>
