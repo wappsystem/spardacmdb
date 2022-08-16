@@ -74,6 +74,8 @@
         "date-time-form-spardac":   	        {url:"$H/m/spardac/date-time-form.html",Table:"date-time-spardac",task_name:"Visit 2 - Date/time inputs"},
         "number-max-min-data-spardac":          {url:"$H/m/spardac/numbers-data.html",Table:"number-max-min-spardac",form_module:"number-max-min-form-spardac",task_name:"Visit 2 - Number min/max inputs"},
         "number-max-min-form-spardac":          {url:"$H/m/spardac/numbers-form.html",Table:"number-max-min-spardac",task_name:"Visit 2 - Number min/max inputs"},
+        "quest-example-data-spardac":   {url:"$H/m/spardac/quest-example-data.html",Table:"quest-example-spardac",form_module:"quest-example-form-spardac",task_name:"Questionnaire Form Examples"},
+        "quest-example-form-spardac":   {url:"$H/m/spardac/quest-example-form.html",Table:"quest-example-spardac",task_name:"Questionnaire Form Examples"},
 
         "concom-medication-data-spardac":       {url:"$H/m/library/concom-medication-data.html",Table:"concom-medication-spardac",form_module:"concom-medication-form-spardac",task_name:"Unscheduled - Concomitant Medication"},
         "concom-medication-form-spardac":       {url:"$H/m/library/concom-medication-form.html",Table:"concom-medication-spardac",task_name:"Unscheduled - Concomitant Medication"},
