@@ -20,6 +20,26 @@
           </div>
         </div>
         <div class="formgroup">
+          <div class="questiongroup ">
+            <span class="question"><p>Yes/No with optional input box. Shown when Yes is selected</p></span>
+            <fieldset class="grid-container-2">
+              <div class="">
+                <label><span class="question">Question 1</span><br>
+                  <input id="yno_1__ID" name="yno" type="radio" value="1" required>
+                  <label class="rd_btn" for="yno_1__ID">Yes</label>
+                  <input id="yno_2__ID" name="yno" type="radio" value="0">
+                  <label class="rd_btn" for="yno_2__ID">No</label>
+                </label>
+              </div>
+              <div>
+                <label id="ynot__ID" class="fullwidth hide"><span class="question">Option Text</span>
+                  <input type=text name="ynot" class=formcontrol />
+                </label>
+              </div>
+          </fieldset>
+          </div>
+        </div>
+            <div class="formgroup">
           <fieldset class="">
             <span class="question"><p>Instructions</p></span>
             <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad <b>minim veniam</b>, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span>
@@ -197,12 +217,32 @@
       else {
         $('<style>#vas_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 0px; height: 0px; background: #167d7f; cursor: pointer; }</style>').appendTo('head');
       }
+      if($('#F__ID input[name=yno]:checked').val()=='1'){
+        $('#F__ID #ynot__ID').show();
+        $('#F__ID #lynot__ID').show();
+      }
+      else {
+        $('#F__ID #ynot__ID').hide();
+        $('#F__ID #lynot__ID').hide();
+      }
 
     }
     //-------------------------------
     $('#vas__ID').on('click', function () {
       $('<style>#vas_con__ID input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 5px; height: 25px; background: #167d7f; cursor: pointer; }</style>').appendTo('head');
       $('#vas_req__ID').val("OK")
+    })
+    //-------------------------------------
+    $('#F__ID input[name=yno]').on('change', function (){
+      console.log('test'+$('#F__ID input[name=yno]:checked').val())
+      if($('#F__ID input[name=yno]:checked').val()=='1'){
+        $('#F__ID #ynot__ID').show();
+        $('#F__ID #lynot__ID').show();
+      }
+      else {
+        $('#F__ID #ynot__ID').hide();
+        $('#F__ID #lynot__ID').hide();
+      }
     })
 
     //-------------------------------------

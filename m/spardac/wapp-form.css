@@ -21,6 +21,9 @@
   #D__ID .fullwidth {
     width:100%;
   }
+  #D__ID .hide{
+    display:none;
+  }
 
   #D__ID .formgroup {
     padding: 3px 15px;
@@ -66,6 +69,10 @@
     grid-template-columns: auto auto auto;
   }
 
+  #D__ID .grid-container-2 {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
   #D__ID input[type="radio"],
   #D__ID input[type="checkbox"] {
     opacity: 0;
@@ -174,6 +181,10 @@
     }
 
     #D__ID .grid-container-3 {
+      grid-template-columns: auto;
+      text-align: center;
+    }
+    #D__ID .grid-container-2 {
       grid-template-columns: auto;
       text-align: center;
     }
