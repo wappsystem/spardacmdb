@@ -73,6 +73,10 @@
     display: grid;
     grid-template-columns: auto auto;
   }
+  #D__ID .grid-container-1 {
+    display: grid;
+    grid-template-columns: auto;
+  }
   #D__ID input[type="radio"],
   #D__ID input[type="checkbox"] {
     opacity: 0;
